@@ -1,0 +1,87 @@
+{
+  "menu": [
+
+    {
+      "name": "Live Report",
+      "icon": "menu-icon tf-icons ti ti-smart-home",
+      "slug": "dashboard",
+      "submenu": [
+        {
+          "url": "/",
+          "name": "Accident Report",
+          "slug": "dashboard-analytics"
+        },
+        {
+          "url": "dashboard/crm",
+          "name": "Patient Safety Report",
+          "slug": "dashboard-crm"
+        },
+        {
+          "url": "app/ecommerce/dashboard",
+          "name": "Manajemen Resiko",
+          "slug": "app-ecommerce-dashboard"
+        },
+        {
+          "url": "app/logistics/dashboard",
+          "name": "Kesehatan Pegawai",
+          "slug": "app-logistics-dashboard"
+        },
+        {
+          "url": "app/academy/dashboard",
+          "name": "Laporan Pengaduan",
+          "slug": "app-academy-dashboard"
+        }
+      ]
+
+    },
+
+    {
+      "menuHeader": "Insiden Keselamatan"
+    },
+    {
+      "url": "forms/accident",
+      "name": "Kecelakaan Kerja",
+      "icon": "menu-icon tf-icons ti ti-smart-home",
+      "slug": "forms-accident"
+    },
+    {
+      "url": "forms/Patientsafety",
+      "name": "Patient Safety",
+      "icon": "menu-icon tf-icons ti ti-smart-home",
+      "slug": "forms-patient-safety"
+    },
+    {
+      "url": "/",
+      "name": "Home",
+      "icon": "menu-icon tf-icons ti ti-smart-home",
+      "slug": "pages-home"
+    },
+    {
+      "url": "page-2",
+      "icon": "menu-icon tf-icons ti ti-file",
+      "name": "Page 2",
+      "slug": "pages-page-2"
+    },
+    {
+      "url": "pages/misc-error",
+      "name": "Error",
+      "icon": "menu-icon tf-icons ti ti-alert-triangle",
+      "slug": "pages-misc-error",
+      "target": "_blank"
+    },
+    {
+      "url": "auth/login-basic",
+      "name": "Login",
+      "icon": "menu-icon tf-icons ti ti-login",
+      "slug": "auth-login-basic",
+      "target": "_blank"
+    },
+    {
+      "url": "auth/register-basic",
+      "name": "Register",
+      "icon": "menu-icon tf-icons ti ti-user",
+      "slug": "auth-register-basic",
+      "target": "_blank"
+    }
+  ]
+}
