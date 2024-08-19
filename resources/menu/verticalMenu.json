@@ -41,14 +41,14 @@
     {
       "url": "forms/accident",
       "name": "Kecelakaan Kerja",
-      "icon": "menu-icon tf-icons ti ti-smart-home",
+      "icon": "menu-icon tf-icons ti ti-file",
       "slug": "forms-accident"
     },
     {
       "url": "forms/Patientsafety",
       "name": "Patient Safety",
-      "icon": "menu-icon tf-icons ti ti-smart-home",
-      "slug": "forms-patient-safety"
+      "icon": "menu-icon tf-icons ti ti-file",
+      "slug": "forms-PatientSafety"
     },
     {
       "url": "/",
