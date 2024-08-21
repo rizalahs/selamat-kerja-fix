@@ -2,7 +2,7 @@
 // Variables
 return [
   "creatorName" => "Puskesmas Bontang Utara 1",
-  "creatorUrl" => "https://pixinvent.com",
+  "creatorUrl" => "https://puskesmas-bu1.bontangkota.go.id",
   "templateName" => "Selamat Kerja",
   "templateSuffix" => "Bootstrap Admin Template",
   "templateVersion" => "1.0.0",

@@ -10,7 +10,7 @@
 <h4 class="py-3 mb-4">
   <span class="text-muted fw-light">Insiden /</span> Form Patient Safety
 </h4>
-
+<hr>
     <!-- HTML5 Inputs -->
     <div class="row">
       <form action="">
