@@ -31,7 +31,7 @@
 
 <!-- Page Scripts -->
 @section('page-script')
-@vite(['resources/assets/js/form-validation.js'])
+@vite(['resources/assets/js/form-accident.js'])
 @endsection
 
 @section('content')
