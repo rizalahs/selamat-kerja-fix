@@ -3,7 +3,7 @@
 
     {
       "name": "Live Report",
-      "icon": "menu-icon tf-icons ti ti-smart-home",
+      "icon": "menu-icon tf-icons fa-solid fa-chart-simple",
       "slug": "dashboard",
       "submenu": [
         {
@@ -32,7 +32,6 @@
           "slug": "app-academy-dashboard"
         }
       ]
-
     },
 
     {
@@ -41,20 +40,60 @@
     {
       "url": "forms/accident",
       "name": "Kecelakaan Kerja",
-      "icon": "menu-icon tf-icons ti ti-file",
+      "icon": "menu-icon fa-solid fa-person-falling-burst",
       "slug": "forms-accident"
     },
     {
       "url": "forms/Patientsafety",
       "name": "Patient Safety",
-      "icon": "menu-icon tf-icons ti ti-file",
+      "icon": "menu-icon fa-solid fa-person-circle-exclamation",
       "slug": "forms-PatientSafety"
     },
     {
-      "url": "/",
-      "name": "Home",
-      "icon": "menu-icon tf-icons ti ti-smart-home",
-      "slug": "pages-home"
+      "menuHeader": "Kesehatan Jasmani & Olahraga"
+    },
+    {
+      "name": "Kesjaor",
+      "icon": "menu-icon tf-icons fa-solid fa-heart",
+      "slug": "kesjaor",
+      "submenu": [
+        {
+          "url": "#",
+          "name": "Profil Kesehatan",
+          "slug": "profil-kesehatan"
+        },
+        {
+          "url": "#",
+          "name": "Laporan Kebugaran",
+          "slug": "laporan-kebugaran"
+        },
+        {
+          "url": "#",
+          "name": "Laporan Vaksinasi",
+          "slug": "laporan-vaksinasi"
+        },
+        {
+          "url": "#",
+          "name": "Pos UKK",
+          "slug": "poa-ukk"
+        }
+      ]
+    },
+    {
+      "menuHeader": "Pengendalian & Pecegahan Infeksi"
+    },
+    {
+      "name": "PPI",
+      "icon": "menu-icon tf-icons fa-solid fa-heart-circle-check",
+      "slug": "ppi",
+      "submenu": [
+        {
+          "url": "#",
+          "name": "Validasi Kebersihan",
+          "icon": "menu-icon tf-icons fa-solid fa-broom",
+          "slug": "validasi-kebersihan"
+        }
+      ]
     },
     {
       "url": "page-2",

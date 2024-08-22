@@ -41,6 +41,7 @@
 <hr>
     <!-- HTML5 Inputs -->
     <div class="row">
+      <form action="#" method="get"> </form>
       <form class="needs-validation" novalidate>
         <div class="card-body">
           <div class="mb-3 row">
