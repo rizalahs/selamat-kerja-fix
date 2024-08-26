@@ -11,4 +11,5 @@ class accident extends Controller
   {
     return view('content.form-elements.forms-accident');
   }
+
 }

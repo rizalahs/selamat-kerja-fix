@@ -50,6 +50,12 @@
       "slug": "forms-PatientSafety"
     },
     {
+      "url": "#",
+      "name": "Penyakit Akibat Kerja",
+      "icon": "menu-icon fa-solid fa-user-injured",
+      "slug": "forms-PenyakitAkibatKerja"
+    },
+    {
       "menuHeader": "Kesehatan Jasmani & Olahraga"
     },
     {

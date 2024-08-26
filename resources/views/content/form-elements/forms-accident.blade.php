@@ -5,6 +5,7 @@
 <!-- Vendor Styles -->
 @section('vendor-style')
 @vite([
+  'resources/assets/vendor/libs/bs-stepper/bs-stepper.scss',
   'resources/assets/vendor/libs/bootstrap-select/bootstrap-select.scss',
   'resources/assets/vendor/libs/select2/select2.scss',
   'resources/assets/vendor/libs/flatpickr/flatpickr.scss',
@@ -17,6 +18,7 @@
 <!-- Vendor Scripts -->
 @section('vendor-script')
 @vite([
+  'resources/assets/vendor/libs/bs-stepper/bs-stepper.js',
   'resources/assets/vendor/libs/select2/select2.js',
   'resources/assets/vendor/libs/bootstrap-select/bootstrap-select.js',
   'resources/assets/vendor/libs/moment/moment.js',
@@ -31,116 +33,210 @@
 
 <!-- Page Scripts -->
 @section('page-script')
-@vite(['resources/assets/js/form-accident.js'])
+@vite([
+  'resources/assets/js/form-accident.js',
+  'resources/assets/js/forms-selects.js',
+  'resources/assets/js/forms-tagify.js',
+  'resources/assets/js/forms-typeahead.js',
+  'resources/assets/js/form-input-group.js'
+  ])
 @endsection
 
 @section('content')
 <h4 class="py-3 mb-4">
-  <span class="text-muted fw-light">Insiden /</span> Form Kecelakaan Kerja
+  <span class="text-muted fw-light">Insiden Keselamatan/</span> Kecelakaan Kerja
 </h4>
-<hr>
-    <!-- HTML5 Inputs -->
-    <div class="row">
-      <form action="#" method="get"> </form>
-      <form class="needs-validation" novalidate>
-        <div class="card-body">
-          <div class="mb-3 row">
-            <label for="html5-text-input" class="col-md-2 col-form-label">Nama</label>
-            <div class="col-md-10">
-              <input class="form-control" type="text" value="" id="html5-text-input" required/>
-              <div class="valid-feedback"> Looks good! </div>
-              <div class="invalid-feedback"> Silahkan masukkan nama anda. </div>
-            </div>
-          </div>
-          <div class="mb-3 row">
-            <label for="html5-datetime-local-input" class="col-md-2 col-form-label">Tanggal Kejadian</label>
-            <div class="col-md-10">
-              <input class="form-control" type="date" value="" id="html5-datetime-local-input" required/>
-              <div class="valid-feedback"> Looks good! </div>
-              <div class="invalid-feedback"> Masukan tanggal kejadian. </div>
-            </div>
-          </div>
-          <div class="mb-3 row">
-            <label for="html5-url-input" class="col-md-2 col-form-label">Waktu Kejadian</label>
-            <div class="col-md-10">
-              <input class="form-control" type="time" value="" id="html5-url-input" required/>
-              <div class="valid-feedback"> Looks good! </div>
-              <div class="invalid-feedback"> Masukan waktu kejadian. </div>
-            </div>
-          </div>
-          <div class="mb-3 row">
-            <label for="html5-datetime-local-input" class="col-md-2 col-form-label">Lokasi Kejadian</label>
-              <div class="col-md-10">
-                 <select class ="form-control" required id="">
-                <option value="" selected disabled>Pilih Lokasi Kejadian</option>
-                <option value="Poli Umum">Poli Umum</option>
-                <option value="Poli Anak">Poli Anak</option>
-                <option value="Poli KIA">Poli KIA</option>
-                <option value="Poli Gizi">Poli Gizi</option>
-                <option value="Poli Gigi">Poli Gigi</option>
-                <option value="Poli Imunisasi">Poli Imunisasi</option>
-                <option value="Poli P2M">Poli P2M</option>
-                <option value="Ruang Pendaftaran">Ruang Pendaftaran</option>
-                <option value="Ruang Farmasi">Ruang Faramasi</option>
-                <option value="Ruang Laktasi">Ruang Laktasi</option>
-                <option value="Ruang Tindakan">Ruang Tindakan</option>
-                <option value="Ruang Sterilisasi">Ruang Sterilisasi</option>
-                <option value="Ruang Tata Usaha">Ruang Tata Usaha</option>
-                <option value="Laboratorium">Laboratorium</option>
-              </select>
-              <div class="valid-feedback"> Looks good! </div>
-              <div class="invalid-feedback"> Pilih lokasi kejadian. </div>
-             </div>
-            </label>
-          </div>
-          <div class="mb-3 row">
-            <label for="html5-datetime-local-input" class="col-md-2 col-form-label">Jenis Kejadian</label>
-              <div class="col-md-10">
-              <select class="form-control" required id="">
-                <option value="" selected disabled>Pilih jenis kejadian</option>
-                <option value="Kecelakaan Akibat Kerja">Kecelakaan Akibat</option>
-                <option value="Kondisi Lingkungan Tidak Aman">Kondisi Lingkungan Tidak Aman</option>
-              </select>
-              <div class="valid-feedback"> Looks good! </div>
-              <div class="invalid-feedback"> Pilih jenis kejadian. </div>
-             </div>
-            </label>
-          </div>
-          <div class="mb-3 row">
-            <label for="html5-tel-input" class="col-md-2 col-form-label">Kronologi Kejadian</label>
-            <div class="col-md-10">
-            <textarea class="form-control" placeholder="Jelaskan kronologi kejadian dengan lengkap" id="exampleFormControlTextarea1" rows="3" required></textarea>
-            <div class="valid-feedback"> Looks good! </div>
-              <div class="invalid-feedback"> Jelaskan Kronologi Kejadian. </div>
-            </div>
-          </div>
-          <div class="mb-3 row">
-            <label for="html5-password-input" class="col-md-2 col-form-label">Tindakan yang sudah di ambil</label>
-            <div class="col-md-10">
-              <select class="form-control" required id="">
-                <option value="" selected disabled>Pilih Tindakan</option>
-                <option value="Menonaktifkan atau mengamankan area yang berpotensi membahayakan (elimanasi)">Menonaktifkan atau mengamankan area yang berpotensi membahayakan (elimanasi)</option>
-                <option value="Melakukan investigasi internal untuk mengetahui penyebab kejadian(Pengendalian Administrasi)">Melakukan investigasi internal untuk mengetahui penyebab kejadian(Pengendalian Administrasi)</option>
-                <option value="Melakukan perbaikan atau perubahan pada prosedur kerja yang terkait (rekayasa teknik)">Melakukan perbaikan atau perubahan pada prosedur kerja yang terkait (rekayasa teknik)</option>
-                <option value="Mengganti atau memperbaiki peralatan yang rusak atau berpotensi membahayakan.(subtitusi)">Mengganti atau memperbaiki peralatan yang rusak atau berpotensi membahayakan.(subtitusi)</option>
-                <option value="Melengkapi diri / petugas / tenaga kerja dengan alat pelindugan diri agar meniadakan risiko(APD)">Melengkapi diri / petugas / tenaga kerja dengan alat pelindugan diri agar meniadakan risiko(APD)</option>
-                <option value="Menghubungi petugas keamanan atau penanggung jawab area terkait">Menghubungi petugas keamanan atau penanggung jawab area terkait</option>
-              </select>
-              <div class="valid-feedback"> Looks good! </div>
-              <div class="invalid-feedback"> Pilih tindakan yang sudah di ambil. </div>
-            </div>
-          </div>
-          <div class="mb-3 row">
-            <label for="html5-tel-input" class="col-md-2 col-form-label">Rekomendasi Tindak Lanjut</label>
-            <div class="col-md-10">
-            <textarea class="form-control" placeholder="Berikan rekomendasi saran untuk perbaikan tindak lanjut" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-          </div>
-          <div class="footer-right d-flex justify-content-end">
-            <button type="submit" class="btn btn-success">Submit</button>
-          </div>
+<!-- Default -->
+{{-- <div class="row">
+  <div class="col-12">
+    <h5>Default</h5>
+  </div> --}}
+
+  <!-- Validation Wizard -->
+  <div class="col-12 mb-4">
+    <small class="text-light fw-medium">Sistem Laporan Keselamatan Kerja</small>
+    <div id="wizard-validation" class="bs-stepper mt-2">
+      <div class="bs-stepper-header">
+        <div class="step" data-target="#account-details-validation">
+          <button type="button" class="step-trigger">
+            <span class="bs-stepper-circle">1</span>
+            <span class="bs-stepper-label mt-1">
+              <span class="bs-stepper-title">Informasi Umum</span>
+              <span class="bs-stepper-subtitle">General Information</span>
+            </span>
+          </button>
         </div>
-      </form>
+        <div class="line">
+          <i class="ti ti-chevron-right"></i>
+        </div>
+        <div class="step" data-target="#personal-info-validation">
+          <button type="button" class="step-trigger">
+            <span class="bs-stepper-circle">2</span>
+            <span class="bs-stepper-label">
+              <span class="bs-stepper-title">Detail Kejadian</span>
+              <span class="bs-stepper-subtitle">Incident Detail</span>
+            </span>
+          </button>
+        </div>
+        <div class="line">
+          <i class="ti ti-chevron-right"></i>
+        </div>
+        <div class="step" data-target="#social-links-validation">
+          <button type="button" class="step-trigger">
+            <span class="bs-stepper-circle">3</span>
+            <span class="bs-stepper-label">
+              <span class="bs-stepper-title">Data Korban</span>
+              <span class="bs-stepper-subtitle">Accident Victims</span>
+            </span>
+          </button>
+        </div>
+      </div>
+      <div class="bs-stepper-content">
+        <form id="wizard-validation-form" onSubmit="return false">
+          <!-- Account Details -->
+          <div id="account-details-validation" class="content">
+            <div class="content-header mb-3">
+              <h6 class="mb-0">Informasi Umum</h6>
+              <small>Masukan informasi umum kejadian.</small>
+            </div>
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label class="form-label" for="formValidationUsername">Nama</label>
+                <input type="text" name="formValidationName" id="formValidatioName" class="form-control" placeholder="Nama Pelapor" />
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label" for="formValidationEmail">Waktu Kejadian</label>
+                <input type="time" name="formValidationTime" id="formValidationTime" class="form-control" />
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label" for="formValidationEmail">Tangal Kejadian</label>
+                <input type="date" name="formValidationDate" id="formValidationDate" class="form-control" />
+              </div>
+              <div class="col-md-6 mb-4">
+                <label for="select2Icons" class="form-label">Jenis Kejadian</label>
+                <select id="select2Icons" class="select2-icons form-select" required>
+                  <optgroup label="Kejadian Akibat Kerja">
+                    <option value="Bootstrap5" data-icon="fa-solid fa-person-falling" >Terjatuh, tergelincir, tersandung</option>
+                    <option value="Bootstrap5" data-icon="fa-solid fa-person-falling-burst"  >Tertimpa benda</option>
+                    <option value="codepen" data-icon="fa-solid fa-syringe">Tertusuk, terpotong</option>
+                    <option value="codepen" data-icon="fa-solid fa-bolt-lightning">Tersengat listrik</option>
+                  <optgroup label="Paparan Zat Berbahaya">
+                    <option value="codepen" data-icon="fa-solid fa-flask">Paparan Bahan Kimia</option>
+                    <option value="php" data-icon="fa-solid fa-lungs">Paparan Gas, asap, debu</option>
+                  <optgroup label="Kejadian Ergonomis">
+                    <option value="pinterest2" data-icon="fa-solid fa-user-injured">Cedera akibat gerakan berulang</option>
+                    <option value="html5" data-icon="fa-solid fa-person-digging">Cedera akibat posisi yang salah</option>
+                  </optgroup>
+                  <optgroup label="Kebakaran dan Ledakan">
+                    <option value="pdf" data-icon="fa-solid fa-fire">Kebakaran, korsleting listrik, api terbuka, bahan mudah terbakar</option>
+                    <option value="word" data-icon="fa-solid fa-explosion">Ledakan, tekanan berlebihan pada tangki atau tabung gas</option>
+                  </optgroup>
+                  <optgroup label="Gangguan Keamanan">
+                    <option value="chrome" data-icon="fa-solid fa-person-harassing">Kekerasan fisik atau kekerasan verbal</option>
+                    <option value="firefox" data-icon="fa-solid fa-user-ninja">Pencurian atau perusakan properti</option>
+                  </optgroup>
+                  <optgroup label="Kejadian Psikologi">
+                    <option value="chrome" data-icon="fa-solid fa-face-frown">Setres Kerja : Akibat beban kerja, tekanan waktu, atau kondisi kerja yang buruk</option>
+                    <option value="firefox" data-icon="fa-solid fa-face-frown">Burnout : Kelelahan emosional, fisik, dan mental</option>
+                  </optgroup>
+                  <optgroup label="Kejadian Lingkungan">
+                    <option value="chrome" data-icon="fa-solid fa-biohazard">Tumpahan bahan berbahaya </option>
+                    <option value="firefox" data-icon="fa-solid fa-fish">Pencemaran lingkungan </option>
+                  </optgroup>
+                  <optgroup label="Kegagalan Peralatan">
+                    <option value="chrome" data-icon="fa-solid fa-car-burst">Kerusakan mesin atau alat </option>
+                    <option value="firefox" data-icon="fa-solid fa-screwdriver-wrench">Kegagalan Sistem </option>
+                  </optgroup>
+                  <optgroup label="Kejadian Lalu Lintas di Area Kerja">
+                    <option value="chrome" data-icon="fa-solid fa-car-burst">Kecelakaan kendaraan </option>
+                  </optgroup>
+                </select>
+              </div>
+
+              <div class="col-12 d-flex justify-content-between">
+                <button class="btn btn-label-secondary btn-prev" disabled> <i class="ti ti-arrow-left me-sm-1 me-0"></i>
+                  <span class="align-middle d-sm-inline-block d-none">Previous</span>
+                </button>
+                <button class="btn btn-primary btn-next"> <span class="align-middle d-sm-inline-block d-none me-sm-1">Next</span> <i class="ti ti-arrow-right"></i></button>
+              </div>
+            </div>
+          </div>
+          <!-- Detail Kejadian -->
+          <div id="personal-info-validation" class="content">
+            <div class="content-header mb-3">
+              <h6 class="mb-0">Detail Kejadian</h6>
+              <small>Jelaskan secara rinci insiden yang terjadi</small>
+            </div>
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label class="form-label" for="formValidationFirstName">Kronologi Kejadian</label>
+                <div class="input-group input-group-merge form-send-message">
+                  <textarea class="form-control message-input" placeholder="Ketik atau Klik icon untuk bicara" rows="2"></textarea>
+                  <span class="message-actions input-group-text">
+                    <i class='ti ti-microphone cursor-pointer speech-to-text'></i>
+                  </span>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label" for="#">Alat atau bahan yang terlibat</label>
+                <input type="text" id="" name="name" class="form-control" placeholder="Alat, mesin, atau bahan yang terlibat dalam kejadian" />
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label" for="#">Penyebab kejadian</label>
+                <input type="text" id="" name="name" class="form-control" placeholder="Identifikasi faktor penyebab langsung atau tidak langsung" />
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label" for="#">Kondisi lingkungan saat kejadian</label>
+                <input type="text" id="" name="name" class="form-control" placeholder="Kondisi lingkungan misalnya : keramaian, pencahayaan, kebisingan, kondisi lantai, dll" />
+              </div>
+              <div class="col-12 d-flex justify-content-between">
+                <button class="btn btn-label-secondary btn-prev"> <i class="ti ti-arrow-left me-sm-1 me-0"></i>
+                  <span class="align-middle d-sm-inline-block d-none">Previous</span>
+                </button>
+                <button class="btn btn-primary btn-next"> <span class="align-middle d-sm-inline-block d-none me-sm-1">Next</span> <i class="ti ti-arrow-right"></i></button>
+              </div>
+            </div>
+          </div>
+          <!-- Data korban dan saksi -->
+          <div id="social-links-validation" class="content">
+            <div class="content-header mb-3">
+              <h6 class="mb-0">Data korban</h6>
+              <small>Isi apabila terdapat korban maupun kejadian yang nyaris memakan korban.</small>
+            </div>
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label class="form-label" for="">Nama Korban</label>
+                <input type="text" name="" id="" class="form-control" placeholder="" />
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label" for="formValidationTwitter">Cedera yang di alami</label>
+                <input type="text" name="" id="" class="form-control" placeholder="Deskripsi cedera yang dialami korban (misalnya, luka, patah tulang, memar)" />
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label" for="formValidationTwitter">Bagian tubuh yang cidera</label>
+                <input type="text" name="" id="#" class="form-control" placeholder="misalnya, tangan, kepala, kaki" />
+              </div>
+
+              <div class="col-sm-6">
+                <label class="form-label" for="formValidationFacebook">Tindakan pertolongan pertama</label>
+                <input type="text" name="" id="#" class="form-control" placeholder="pertolongan pertama yang diberikan" />
+              </div>
+              <hr>
+              <div class="col">
+                <input type="file" class="form-control" id="inputGroupFile02" capture="camera">
+                <label class="input-group-text" for="inputGroupFile02">Upload gambar atau video</label>
+              </div>
+              <div class="col-12 d-flex justify-content-between">
+                <button class="btn btn-label-secondary btn-prev"> <i class="ti ti-arrow-left me-sm-1 me-0"></i>
+                  <span class="align-middle d-sm-inline-block d-none">Previous</span>
+                </button>
+                <button class="btn btn-success btn-next btn-submit">Submit</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 
 @endsection
