@@ -70,7 +70,7 @@
           <div class="mb-3 row">
             <label for="html5-datetime-local-input" class="col-md-2 col-form-label">Lokasi Kejadian</label>
               <div class="col-md-10">
-                 <select class ="form-control" required id="">
+                <select class ="form-control" required id="">
                 <option value="" selected disabled>Pilih Lokasi Kejadian</option>
                 <option value="Poli Umum">Poli Umum</option>
                 <option value="Poli Anak">Poli Anak</option>

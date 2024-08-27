@@ -7,6 +7,7 @@
 $(function () {
   const selectPicker = $('.selectpicker'),
     select2 = $('.select2'),
+    select3 = $('.select3'),
     select2Icons = $('.select2-icons');
 
   // Bootstrap Select
@@ -28,6 +29,17 @@ $(function () {
       });
     });
   }
+  // Default untuk select3
+  if (select3.length) {
+    select3.each(function () {
+      var $this = $(this);
+      $this.wrap('<div class="position-relative"></div>').select2({
+        placeholder: 'Select value',
+        dropdownParent: $this.parent()
+      });
+    });
+  }
+
 
   // Select2 Icons
   if (select2Icons.length) {

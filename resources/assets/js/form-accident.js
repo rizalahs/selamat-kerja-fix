@@ -6,6 +6,7 @@
 
 (function () {
   const select2 = $('.select2'),
+  select3 = $('.select3'),
     selectPicker = $('.selectpicker');
 
   // Wizard Validation
@@ -46,7 +47,7 @@
         formValidationDate: {
           validators: {
             notEmpty: {
-              message: 'Lokasi kejadian dibutuhkan'
+              message: 'Tanggal kejadian dibutuhkan'
             }
           }
         },
@@ -54,15 +55,9 @@
           validators: {
             notEmpty: {
               message: 'Jenis kejadian dibutuhkan'
-            },
-            identical: {
-              compare: function () {
-                return wizardValidationFormStep1.querySelector('[name="formValidationPass"]').value;
-              },
-              message: 'The password and its confirm are not the same'
             }
           }
-        }
+        },
       },
       plugins: {
         trigger: new FormValidation.plugins.Trigger(),

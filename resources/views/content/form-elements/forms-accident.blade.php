@@ -101,58 +101,78 @@
             </div>
             <div class="row g-3">
               <div class="col-sm-6">
-                <label class="form-label" for="formValidationUsername">Nama</label>
-                <input type="text" name="formValidationName" id="formValidatioName" class="form-control" placeholder="Nama Pelapor" />
+                <label class="form-label" for="#">Nama</label>
+                <input type="text" name="formValidationName" id="#" class="form-control" placeholder="Nama Pelapor" />
               </div>
               <div class="col-sm-6">
-                <label class="form-label" for="formValidationEmail">Waktu Kejadian</label>
-                <input type="time" name="formValidationTime" id="formValidationTime" class="form-control" />
+                <label class="form-label" for="accidentTime">Waktu Kejadian</label>
+                <input type="time" name="formValidationTime" id="#" class="form-control" />
               </div>
               <div class="col-sm-6">
-                <label class="form-label" for="formValidationEmail">Tangal Kejadian</label>
-                <input type="date" name="formValidationDate" id="formValidationDate" class="form-control" />
+                <label class="form-label" for="accindentDate">Tangal Kejadian</label>
+                <input type="date" name="formValidationDate" id="#" class="form-control" />
               </div>
-              <div class="col-md-6 mb-4">
-                <label for="select2Icons" class="form-label">Jenis Kejadian</label>
-                <select id="select2Icons" class="select2-icons form-select" required>
+              <div class="col-md-6">
+                <label for="JenisKejadian" class="form-label">Jenis Kejadian</label>
+                <select class="select2-icons form-select" id="jenis-kejadian">
+                  <option selected disabled>Pilih Jenis Kejadian</option>
                   <optgroup label="Kejadian Akibat Kerja">
-                    <option value="Bootstrap5" data-icon="fa-solid fa-person-falling" >Terjatuh, tergelincir, tersandung</option>
-                    <option value="Bootstrap5" data-icon="fa-solid fa-person-falling-burst"  >Tertimpa benda</option>
-                    <option value="codepen" data-icon="fa-solid fa-syringe">Tertusuk, terpotong</option>
-                    <option value="codepen" data-icon="fa-solid fa-bolt-lightning">Tersengat listrik</option>
+                    <option value="terjatuh" data-icon="fa-solid fa-person-falling" >Terjatuh, tergelincir, tersandung</option>
+                    <option value="tertimpa" data-icon="fa-solid fa-person-falling-burst"  >Tertimpa benda</option>
+                    <option value="tertusuk" data-icon="fa-solid fa-syringe">Tertusuk, terpotong</option>
+                    <option value="tersenga" data-icon="fa-solid fa-bolt-lightning">Tersengat listrik</option>
                   <optgroup label="Paparan Zat Berbahaya">
-                    <option value="codepen" data-icon="fa-solid fa-flask">Paparan Bahan Kimia</option>
-                    <option value="php" data-icon="fa-solid fa-lungs">Paparan Gas, asap, debu</option>
+                    <option value="Kimia" data-icon="fa-solid fa-flask">Paparan Bahan Kimia</option>
+                    <option value="terpapargas" data-icon="fa-solid fa-lungs">Paparan Gas, asap, debu</option>
                   <optgroup label="Kejadian Ergonomis">
-                    <option value="pinterest2" data-icon="fa-solid fa-user-injured">Cedera akibat gerakan berulang</option>
-                    <option value="html5" data-icon="fa-solid fa-person-digging">Cedera akibat posisi yang salah</option>
+                    <option value="cederaberulang" data-icon="fa-solid fa-user-injured">Cedera akibat gerakan berulang</option>
+                    <option value="posisisalah" data-icon="fa-solid fa-person-digging">Cedera akibat posisi yang salah</option>
                   </optgroup>
                   <optgroup label="Kebakaran dan Ledakan">
-                    <option value="pdf" data-icon="fa-solid fa-fire">Kebakaran, korsleting listrik, api terbuka, bahan mudah terbakar</option>
-                    <option value="word" data-icon="fa-solid fa-explosion">Ledakan, tekanan berlebihan pada tangki atau tabung gas</option>
+                    <option value="kebakaran" data-icon="fa-solid fa-fire">Kebakaran, korsleting listrik, api terbuka, bahan mudah terbakar</option>
+                    <option value="ledakan" data-icon="fa-solid fa-explosion">Ledakan, tekanan berlebihan pada tangki atau tabung gas</option>
                   </optgroup>
                   <optgroup label="Gangguan Keamanan">
-                    <option value="chrome" data-icon="fa-solid fa-person-harassing">Kekerasan fisik atau kekerasan verbal</option>
-                    <option value="firefox" data-icon="fa-solid fa-user-ninja">Pencurian atau perusakan properti</option>
+                    <option value="kekerasan-fisik" data-icon="fa-solid fa-person-harassing">Kekerasan fisik atau kekerasan verbal</option>
+                    <option value="pencurian" data-icon="fa-solid fa-user-ninja">Pencurian atau perusakan properti</option>
                   </optgroup>
                   <optgroup label="Kejadian Psikologi">
-                    <option value="chrome" data-icon="fa-solid fa-face-frown">Setres Kerja : Akibat beban kerja, tekanan waktu, atau kondisi kerja yang buruk</option>
-                    <option value="firefox" data-icon="fa-solid fa-face-frown">Burnout : Kelelahan emosional, fisik, dan mental</option>
+                    <option value="setres-kerja" data-icon="fa-solid fa-face-frown">Setres Kerja : Akibat beban kerja, tekanan waktu, atau kondisi kerja yang buruk</option>
+                    <option value="burnout" data-icon="fa-solid fa-face-frown">Burnout : Kelelahan emosional, fisik, dan mental</option>
                   </optgroup>
                   <optgroup label="Kejadian Lingkungan">
-                    <option value="chrome" data-icon="fa-solid fa-biohazard">Tumpahan bahan berbahaya </option>
-                    <option value="firefox" data-icon="fa-solid fa-fish">Pencemaran lingkungan </option>
+                    <option value="tumpahan-bahan-berbahaya" data-icon="fa-solid fa-biohazard">Tumpahan bahan berbahaya </option>
+                    <option value="pencemaran" data-icon="fa-solid fa-fish">Pencemaran lingkungan </option>
                   </optgroup>
                   <optgroup label="Kegagalan Peralatan">
-                    <option value="chrome" data-icon="fa-solid fa-car-burst">Kerusakan mesin atau alat </option>
-                    <option value="firefox" data-icon="fa-solid fa-screwdriver-wrench">Kegagalan Sistem </option>
+                    <option value="rusak-mesin" data-icon="fa-solid fa-car-burst">Kerusakan mesin atau alat </option>
+                    <option value="rusak-alat" data-icon="fa-solid fa-screwdriver-wrench">Kegagalan Sistem </option>
                   </optgroup>
                   <optgroup label="Kejadian Lalu Lintas di Area Kerja">
-                    <option value="chrome" data-icon="fa-solid fa-car-burst">Kecelakaan kendaraan </option>
+                    <option value="kecelakaan-kendaraan" data-icon="fa-solid fa-car-burst">Kecelakaan kendaraan </option>
                   </optgroup>
                 </select>
               </div>
-
+              <div class="col-md-6">
+                <label class="form-label" for="lokasi-kejadian">Lokasi Kejadian</label>
+              <select class="select3" id="lokasi-kejadian">
+                  <option selected disabled>Pilih Lokasi Kejadian</option>
+                  <option value="Poli Umum">Poli Umum</option>
+                  <option value="Poli Anak">Poli Anak</option>
+                  <option value="Poli KIA">Poli KIA</option>
+                  <option value="Poli Gizi">Poli Gizi</option>
+                  <option value="Poli Gigi">Poli Gigi</option>
+                  <option value="Poli Imunisasi">Poli Imunisasi</option>
+                  <option value="Poli P2M">Poli P2M</option>
+                  <option value="Ruang Pendaftaran">Ruang Pendaftaran</option>
+                  <option value="Ruang Farmasi">Ruang Faramasi</option>
+                  <option value="Ruang Laktasi">Ruang Laktasi</option>
+                  <option value="Ruang Tindakan">Ruang Tindakan</option>
+                  <option value="Ruang Sterilisasi">Ruang Sterilisasi</option>
+                  <option value="Ruang Tata Usaha">Ruang Tata Usaha</option>
+                  <option value="Laboratorium">Laboratorium</option>
+                </select>
+              </div>
               <div class="col-12 d-flex justify-content-between">
                 <button class="btn btn-label-secondary btn-prev" disabled> <i class="ti ti-arrow-left me-sm-1 me-0"></i>
                   <span class="align-middle d-sm-inline-block d-none">Previous</span>
