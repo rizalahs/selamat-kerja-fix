@@ -11,7 +11,9 @@
   'resources/assets/vendor/libs/flatpickr/flatpickr.scss',
   'resources/assets/vendor/libs/typeahead-js/typeahead.scss',
   'resources/assets/vendor/libs/tagify/tagify.scss',
-  'resources/assets/vendor/libs/@form-validation/form-validation.scss'
+  'resources/assets/vendor/libs/@form-validation/form-validation.scss',
+  'resources/assets/vendor/libs/animate-css/animate.scss',
+  'resources/assets/vendor/libs/sweetalert2/sweetalert2.scss'
 ])
 @endsection
 
@@ -27,7 +29,8 @@
   'resources/assets/vendor/libs/tagify/tagify.js',
   'resources/assets/vendor/libs/@form-validation/popular.js',
   'resources/assets/vendor/libs/@form-validation/bootstrap5.js',
-  'resources/assets/vendor/libs/@form-validation/auto-focus.js'
+  'resources/assets/vendor/libs/@form-validation/auto-focus.js',
+  'resources/assets/vendor/libs/sweetalert2/sweetalert2.js'
 ])
 @endsection
 
@@ -38,7 +41,9 @@
   'resources/assets/js/forms-selects.js',
   'resources/assets/js/forms-tagify.js',
   'resources/assets/js/forms-typeahead.js',
-  'resources/assets/js/form-input-group.js'
+  'resources/assets/js/form-input-group.js',
+  'resources/assets/js/forms-pickers.js',
+  'resources/assets/js/extended-ui-sweetalert2.js'
   ])
 @endsection
 
@@ -105,12 +110,12 @@
                 <input type="text" name="formValidationName" id="#" class="form-control" placeholder="Nama Pelapor" />
               </div>
               <div class="col-sm-6">
-                <label class="form-label" for="accidentTime">Waktu Kejadian</label>
-                <input type="time" name="formValidationTime" id="#" class="form-control" />
+                <label for="accidentTime" class="form-label">Waktu Kejadian</label>
+                <input type="text" class="form-control" placeholder="HH:MM" id="flatpickr-time" />
               </div>
               <div class="col-sm-6">
-                <label class="form-label" for="accindentDate">Tangal Kejadian</label>
-                <input type="date" name="formValidationDate" id="#" class="form-control" />
+                <label for="accident-date" class="form-label">Tanggal Kejadian</label>
+                <input type="text" class="form-control" placeholder="Masukan Tanggal Kejadian" id="flatpickr-date" />
               </div>
               <div class="col-md-6">
                 <label for="JenisKejadian" class="form-label">Jenis Kejadian</label>
@@ -226,11 +231,11 @@
             <div class="row g-3">
               <div class="col-sm-6">
                 <label class="form-label" for="">Nama Korban</label>
-                <input type="text" name="" id="" class="form-control" placeholder="" />
+                <input type="text" name="" id="" class="form-control" placeholder="Masukan nama korban" />
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="formValidationTwitter">Cedera yang di alami</label>
-                <input type="text" name="" id="" class="form-control" placeholder="Deskripsi cedera yang dialami korban (misalnya, luka, patah tulang, memar)" />
+                <input type="text" name="" id="" class="form-control" placeholder="misalnya, luka, patah tulang, memar" />
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="formValidationTwitter">Bagian tubuh yang cidera</label>
@@ -246,11 +251,14 @@
                 <input type="file" class="form-control" id="inputGroupFile02" capture="camera">
                 <label class="input-group-text" for="inputGroupFile02">Upload gambar atau video</label>
               </div>
-              <div class="col-12 d-flex justify-content-between">
+              <div class="col-12 d-flex justify-content-between ">
                 <button class="btn btn-label-secondary btn-prev"> <i class="ti ti-arrow-left me-sm-1 me-0"></i>
                   <span class="align-middle d-sm-inline-block d-none">Previous</span>
                 </button>
-                <button class="btn btn-success btn-next btn-submit">Submit</button>
+                <div class="demo-inline-spacing">
+                  <button type="button" class="btn btn-success" id="type-success">
+                    Success
+                  </button>
               </div>
             </div>
           </div>

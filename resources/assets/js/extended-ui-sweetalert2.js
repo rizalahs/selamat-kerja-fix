@@ -264,8 +264,8 @@
   if (iconSuccess) {
     iconSuccess.onclick = function () {
       Swal.fire({
-        title: 'Good job!',
-        text: 'You clicked the button!',
+        title: 'Kerja Bagus!',
+        text: 'Terimakasih atas kontribusi anda, laporan anda sangat berarti bagi kami',
         icon: 'success',
         customClass: {
           confirmButton: 'btn btn-primary waves-effect waves-light'
