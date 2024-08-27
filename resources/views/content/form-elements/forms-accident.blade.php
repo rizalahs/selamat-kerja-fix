@@ -251,14 +251,11 @@
                 <input type="file" class="form-control" id="inputGroupFile02" capture="camera">
                 <label class="input-group-text" for="inputGroupFile02">Upload gambar atau video</label>
               </div>
-              <div class="col-12 d-flex justify-content-between ">
+              <div class="col-12 d-flex justify-content-between">
                 <button class="btn btn-label-secondary btn-prev"> <i class="ti ti-arrow-left me-sm-1 me-0"></i>
                   <span class="align-middle d-sm-inline-block d-none">Previous</span>
-                </button>
                 <div class="demo-inline-spacing">
-                  <button type="button" class="btn btn-success" id="type-success">
-                    Success
-                  </button>
+                  <button type="button" class="btn btn-success" id="type-success">Submit</button>
               </div>
             </div>
           </div>
