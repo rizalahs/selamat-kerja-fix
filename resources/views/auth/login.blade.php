@@ -17,12 +17,12 @@ $configData = Helper::appClasses();
 @section('content')
 <div class="authentication-wrapper authentication-cover">
   <!-- Logo -->
-  {{-- <a href="{{url('/')}}" class="app-brand auth-cover-brand" flex>
+  <a href="{{url('/')}}" class="app-brand auth-cover-brand">
     <span class="app-brand-logo demo">@include('_partials.macros',['height'=>20,'withbg' => "fill: #fff;"])</span>
     <span class="app-brand-text demo text-heading fw-bold">{{ config('variables.templateName') }}</span>
-  </a> --}}
+  </a>
   <!-- /Logo -->
-  <div class="authentication-inner row">
+  <div class="authentication-inner row m-0">
     <!-- /Left Text -->
     <div class="d-none d-lg-flex col-lg-8 p-0">
       <div class="auth-cover-bg auth-cover-bg-color d-flex justify-content-center align-items-center">
@@ -49,16 +49,16 @@ $configData = Helper::appClasses();
 
         <form id="formAuthentication" class="mb-6" action="{{ route('login') }}" method="POST">
           @csrf
-          <div class="mb-3">
+          <div class="mb-6">
             <label for="login-email" class="form-label">Email</label>
-            <input type="text" class="form-control @error('email') is-invalid @enderror" id="login-email" name="email" placeholder="masukan email anda" autofocus value="{{ old('email') }}">
+            <input type="text" class="form-control @error('email') is-invalid @enderror" id="login-email" name="email" placeholder="john@example.com" autofocus value="{{ old('email') }}">
             @error('email')
             <span class="invalid-feedback" role="alert">
               <span class="fw-medium">{{ $message }}</span>
             </span>
             @enderror
           </div>
-          <div class="mb-3 form-password-toggle">
+          <div class="mb-6 form-password-toggle">
             <label class="form-label" for="login-password">Password</label>
             <div class="input-group input-group-merge @error('password') is-invalid @enderror">
               <input type="password" id="login-password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
@@ -72,7 +72,7 @@ $configData = Helper::appClasses();
           </div>
           <div class="my-8">
             <div class="d-flex justify-content-between">
-              <div class="form-check mb-3 ms-2">
+              <div class="form-check mb-0 ms-2">
                 <input class="form-check-input" type="checkbox" id="remember-me" name="remember" {{ old('remember') ? 'checked' : '' }}>
                 <label class="form-check-label" for="remember-me">
                   Remember Me
@@ -80,23 +80,44 @@ $configData = Helper::appClasses();
               </div>
               @if (Route::has('password.request'))
                 <a href="{{ route('password.request') }}">
-                  <p class="mb-0">Lupa Password?</p>
+                  <p class="mb-0">Forgot Password?</p>
                 </a>
               @endif
             </div>
           </div>
-          <button class="btn btn-primary d-grid w-100 mb-3" type="submit">Sign in</button>
+          <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
         </form>
 
-        <p class="text-center mb-3">
-          <span>Pengguna baru di Selamat Kerja?</span>
+        <p class="text-center">
+          <span>New on our platform?</span>
           @if (Route::has('register'))
             <a href="{{ route('register') }}">
-              <span>Buat akun</span>
+              <span>Create an account</span>
             </a>
           @endif
         </p>
 
+        <div class="divider my-6">
+          <div class="divider-text">or</div>
+        </div>
+
+        <div class="d-flex justify-content-center">
+          <a href="javascript:;" class="btn btn-sm btn-icon rounded-pill btn-text-facebook me-1_5">
+            <i class="tf-icons ti ti-brand-facebook-filled"></i>
+          </a>
+
+          <a href="javascript:;" class="btn btn-sm btn-icon rounded-pill btn-text-twitter me-1_5">
+            <i class="tf-icons ti ti-brand-twitter-filled"></i>
+          </a>
+
+          <a href="javascript:;" class="btn btn-sm btn-icon rounded-pill btn-text-github me-1_5">
+            <i class="tf-icons ti ti-brand-github-filled"></i>
+          </a>
+
+          <a href="javascript:;" class="btn btn-sm btn-icon rounded-pill btn-text-google-plus">
+            <i class="tf-icons ti ti-brand-google-filled"></i>
+          </a>
+        </div>
       </div>
     </div>
     <!-- /Login -->

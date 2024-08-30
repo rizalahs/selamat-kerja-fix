@@ -8,8 +8,7 @@ use App\Http\Controllers\pages\MiscError;
 use App\Http\Controllers\dashboard\Analytics;
 use App\Http\Controllers\form_elements\accident;
 use App\Http\Controllers\form_elements\PatientSafety;
-use App\Http\Controllers\apps\UserList;
-
+use App\Http\Controllers\laravel_example\UserManagement;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,7 +40,10 @@ Route::get('/forms/accident', [accident::class, 'index'])->name('forms-accident'
 Route::get('/forms/Patientsafety', [PatientSafety::class, 'index'])->name('forms-PatientSafety');
 
 //app
-Route::get('/app/user/list', [UserList::class, 'index'])->name('app-user-list');
+
+// laravel example
+Route::get('/laravel/user-management', [UserManagement::class, 'UserManagement'])->name('laravel-example-user-management');
+Route::resource('/user-list', UserManagement::class);
 
 Route::middleware([
     'auth:sanctum',

@@ -1,17 +1,21 @@
 @extends('layouts/layoutMaster')
 
-@section('title', 'User List - Pages')
+@section('title', 'User Management - Crud App')
 
+<!-- Vendor Styles -->
 @section('vendor-style')
 @vite([
   'resources/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.scss',
   'resources/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.scss',
   'resources/assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.scss',
   'resources/assets/vendor/libs/select2/select2.scss',
-  'resources/assets/vendor/libs/@form-validation/form-validation.scss'
+  'resources/assets/vendor/libs/@form-validation/form-validation.scss',
+  'resources/assets/vendor/libs/animate-css/animate.scss',
+  'resources/assets/vendor/libs/sweetalert2/sweetalert2.scss'
 ])
 @endsection
 
+<!-- Vendor Scripts -->
 @section('vendor-script')
 @vite([
   'resources/assets/vendor/libs/moment/moment.js',
@@ -21,12 +25,14 @@
   'resources/assets/vendor/libs/@form-validation/bootstrap5.js',
   'resources/assets/vendor/libs/@form-validation/auto-focus.js',
   'resources/assets/vendor/libs/cleavejs/cleave.js',
-  'resources/assets/vendor/libs/cleavejs/cleave-phone.js'
+  'resources/assets/vendor/libs/cleavejs/cleave-phone.js',
+  'resources/assets/vendor/libs/sweetalert2/sweetalert2.js'
 ])
 @endsection
 
+<!-- Page Scripts -->
 @section('page-script')
-@vite('resources/assets/js/app-user-list.js')
+@vite(['resources/js/laravel-user-management.js'])
 @endsection
 
 @section('content')
@@ -37,18 +43,16 @@
       <div class="card-body">
         <div class="d-flex align-items-start justify-content-between">
           <div class="content-left">
-            <span>Session</span>
-            <div class="d-flex align-items-center my-2">
-              <h3 class="mb-0 me-2">21,459</h3>
-              <p class="text-success mb-0">(+29%)</p>
+            <span>Users</span>
+            <div class="d-flex align-items-end mt-2">
+              <h3 class="mb-0 me-2">{{$totalUser}}</h3>
+              <small class="text-success">(100%)</small>
             </div>
-            <p class="mb-0">Total Users</p>
+            <small>Total Users</small>
           </div>
-          <div class="avatar">
-            <span class="avatar-initial rounded bg-label-primary">
-              <i class="ti ti-user ti-sm"></i>
-            </span>
-          </div>
+          <span class="badge bg-label-primary rounded p-2">
+            <i class="ti ti-user ti-sm"></i>
+          </span>
         </div>
       </div>
     </div>
@@ -58,18 +62,16 @@
       <div class="card-body">
         <div class="d-flex align-items-start justify-content-between">
           <div class="content-left">
-            <span>Paid Users</span>
-            <div class="d-flex align-items-center my-2">
-              <h3 class="mb-0 me-2">4,567</h3>
-              <p class="text-success mb-0">(+18%)</p>
+            <span>Verified Users</span>
+            <div class="d-flex align-items-end mt-2">
+              <h3 class="mb-0 me-2">{{$verified}}</h3>
+              <small class="text-success">(+95%)</small>
             </div>
-            <p class="mb-0">Last week analytics </p>
+            <small>Recent analytics </small>
           </div>
-          <div class="avatar">
-            <span class="avatar-initial rounded bg-label-danger">
-              <i class="ti ti-user-plus ti-sm"></i>
-            </span>
-          </div>
+          <span class="badge bg-label-success rounded p-2">
+            <i class="ti ti-user-check ti-sm"></i>
+          </span>
         </div>
       </div>
     </div>
@@ -79,18 +81,16 @@
       <div class="card-body">
         <div class="d-flex align-items-start justify-content-between">
           <div class="content-left">
-            <span>Active Users</span>
-            <div class="d-flex align-items-center my-2">
-              <h3 class="mb-0 me-2">19,860</h3>
-              <p class="text-danger mb-0">(-14%)</p>
+            <span>Duplicate Users</span>
+            <div class="d-flex align-items-end mt-2">
+              <h3 class="mb-0 me-2">{{$userDuplicates}}</h3>
+              <small class="text-success">(0%)</small>
             </div>
-            <p class="mb-0">Last week analytics</p>
+            <small>Recent analytics</small>
           </div>
-          <div class="avatar">
-            <span class="avatar-initial rounded bg-label-success">
-              <i class="ti ti-user-check ti-sm"></i>
-            </span>
-          </div>
+          <span class="badge bg-label-danger rounded p-2">
+            <i class="ti ti-users ti-sm"></i>
+          </span>
         </div>
       </div>
     </div>
@@ -100,18 +100,16 @@
       <div class="card-body">
         <div class="d-flex align-items-start justify-content-between">
           <div class="content-left">
-            <span>Pending Users</span>
-            <div class="d-flex align-items-center my-2">
-              <h3 class="mb-0 me-2">237</h3>
-              <p class="text-success mb-0">(+42%)</p>
+            <span>Verification Pending</span>
+            <div class="d-flex align-items-end mt-2">
+              <h3 class="mb-0 me-2">{{$notVerified}}</h3>
+              <small class="text-danger">(+6%)</small>
             </div>
-            <p class="mb-0">Last week analytics</p>
+            <small>Recent analytics</small>
           </div>
-          <div class="avatar">
-            <span class="avatar-initial rounded bg-label-warning">
-              <i class="ti ti-user-exclamation ti-sm"></i>
-            </span>
-          </div>
+          <span class="badge bg-label-warning rounded p-2">
+            <i class="ti ti-user-circle ti-sm"></i>
+          </span>
         </div>
       </div>
     </div>
@@ -119,24 +117,18 @@
 </div>
 <!-- Users List Table -->
 <div class="card">
-  <div class="card-header border-bottom">
-    <h5 class="card-title mb-3">Search Filter</h5>
-    <div class="d-flex justify-content-between align-items-center row pb-2 gap-3 gap-md-0">
-      <div class="col-md-4 user_role"></div>
-      <div class="col-md-4 user_plan"></div>
-      <div class="col-md-4 user_status"></div>
-    </div>
+  <div class="card-header">
+    <h5 class="card-title mb-0">Search Filter</h5>
   </div>
   <div class="card-datatable table-responsive">
     <table class="datatables-users table">
       <thead class="border-top">
         <tr>
           <th></th>
+          <th>Id</th>
           <th>User</th>
-          <th>Role</th>
-          <th>Plan</th>
-          <th>Billing</th>
-          <th>Status</th>
+          <th>Email</th>
+          <th>Verified</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -148,15 +140,16 @@
       <h5 id="offcanvasAddUserLabel" class="offcanvas-title">Add User</h5>
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div class="offcanvas-body mx-0 flex-grow-0 pt-0 h-100">
-      <form class="add-new-user pt-0" id="addNewUserForm" onsubmit="return false">
+    <div class="offcanvas-body mx-0 flex-grow-0">
+      <form class="add-new-user pt-0" id="addNewUserForm">
+        <input type="hidden" name="id" id="user_id">
         <div class="mb-3">
           <label class="form-label" for="add-user-fullname">Full Name</label>
-          <input type="text" class="form-control" id="add-user-fullname" placeholder="John Doe" name="userFullname" aria-label="John Doe" />
+          <input type="text" class="form-control" id="add-user-fullname" placeholder="John Doe" name="name" aria-label="John Doe" />
         </div>
         <div class="mb-3">
           <label class="form-label" for="add-user-email">Email</label>
-          <input type="text" id="add-user-email" class="form-control" placeholder="john.doe@example.com" aria-label="john.doe@example.com" name="userEmail" />
+          <input type="text" id="add-user-email" class="form-control" placeholder="john.doe@example.com" aria-label="john.doe@example.com" name="email" />
         </div>
         <div class="mb-3">
           <label class="form-label" for="add-user-contact">Contact</label>
@@ -164,7 +157,7 @@
         </div>
         <div class="mb-3">
           <label class="form-label" for="add-user-company">Company</label>
-          <input type="text" id="add-user-company" class="form-control" placeholder="Web Developer" aria-label="jdoe1" name="companyName" />
+          <input type="text" id="add-user-company" name="company" class="form-control" placeholder="Web Developer" aria-label="jdoe1" />
         </div>
         <div class="mb-3">
           <label class="form-label" for="country">Country</label>
@@ -221,5 +214,4 @@
     </div>
   </div>
 </div>
-
 @endsection

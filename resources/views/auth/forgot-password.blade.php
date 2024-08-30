@@ -17,15 +17,15 @@ $configData = Helper::appClasses();
 @section('content')
 <div class="authentication-wrapper authentication-cover">
   <!-- Logo -->
-  {{-- <a href="{{url('/')}}" class="app-brand auth-cover-brand">
+  <a href="{{url('/')}}" class="app-brand auth-cover-brand">
     <span class="app-brand-logo demo">@include('_partials.macros',['height'=>20,'withbg' => "fill: #fff;"])</span>
     <span class="app-brand-text demo text-heading fw-bold">{{ config('variables.templateName') }}</span>
-  </a> --}}
+  </a>
   <!-- /Logo -->
-  <div class="authentication-inner row">
+  <div class="authentication-inner row m-0">
 
     <!-- /Left Text -->
-    <div class="d-none d-lg-flex col-lg-8 p-0 mb-3">
+    <div class="d-none d-lg-flex col-lg-8 p-0">
       <div class="auth-cover-bg auth-cover-bg-color d-flex justify-content-center align-items-center">
         <img src="{{ asset('assets/img/illustrations/auth-forgot-password-illustration-'.$configData['style'].'.png') }}" alt="auth-forgot-password-cover" class="my-5 auth-illustration d-lg-block d-none" data-app-light-img="illustrations/auth-forgot-password-illustration-light.png" data-app-dark-img="illustrations/auth-forgot-password-illustration-dark.png">
 
@@ -45,9 +45,9 @@ $configData = Helper::appClasses();
             {{ session('status') }}
           </div>
         @endif
-        <form id="formAuthentication" class="mb-3" action="{{ route('password.email') }}" method="POST">
+        <form id="formAuthentication" class="mb-6" action="{{ route('password.email') }}" method="POST">
           @csrf
-          <div class="mb-3">
+          <div class="mb-6">
             <label for="email" class="form-label">Email</label>
             <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="john@example.com" autofocus>
             @error('email')

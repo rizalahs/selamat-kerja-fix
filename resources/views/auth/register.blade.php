@@ -17,12 +17,12 @@ $configData = Helper::appClasses();
 @section('content')
 <div class="authentication-wrapper authentication-cover">
   <!-- Logo -->
-  {{-- <a href="{{url('/')}}" class="app-brand auth-cover-brand">
+  <a href="{{url('/')}}" class="app-brand auth-cover-brand">
     <span class="app-brand-logo demo">@include('_partials.macros',['height'=>20,'withbg' => "fill: #fff;"])</span>
     <span class="app-brand-text demo text-heading fw-bold">{{ config('variables.templateName') }}</span>
-  </a> --}}
+  </a>
   <!-- /Logo -->
-  <div class="authentication-inner row">
+  <div class="authentication-inner row m-0">
 
     <!-- /Left Text -->
     <div class="d-none d-lg-flex col-lg-8 p-0">
@@ -40,9 +40,9 @@ $configData = Helper::appClasses();
         <h4 class="mb-1">Adventure starts here 🚀</h4>
         <p class="mb-6">Make your app management easy and fun!</p>
 
-        <form id="formAuthentication" class="mb-3" action="{{ route('register') }}" method="POST">
+        <form id="formAuthentication" class="mb-6" action="{{ route('register') }}" method="POST">
           @csrf
-          <div class="mb-3">
+          <div class="mb-6">
             <label for="username" class="form-label">Username</label>
             <input type="text" class="form-control @error('name') is-invalid @enderror" id="username" name="name" placeholder="johndoe" autofocus value="{{ old('name') }}" />
             @error('name')
@@ -51,7 +51,7 @@ $configData = Helper::appClasses();
               </span>
             @enderror
           </div>
-          <div class="mb-3">
+          <div class="mb-6">
             <label for="email" class="form-label">Email</label>
             <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="john@example.com" value="{{ old('email') }}" />
             @error('email')
@@ -60,7 +60,7 @@ $configData = Helper::appClasses();
               </span>
             @enderror
           </div>
-          <div class="mb-3 form-password-toggle">
+          <div class="mb-6 form-password-toggle">
             <label class="form-label" for="password">Password</label>
             <div class="input-group input-group-merge @error('password') is-invalid @enderror">
               <input type="password" id="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
@@ -73,7 +73,7 @@ $configData = Helper::appClasses();
             @enderror
           </div>
 
-          <div class="mb-3 form-password-toggle">
+          <div class="mb-6 form-password-toggle">
             <label class="form-label" for="password-confirm">Confirm Password</label>
             <div class="input-group input-group-merge">
               <input type="password" id="password-confirm" class="form-control" name="password_confirmation" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
@@ -81,7 +81,7 @@ $configData = Helper::appClasses();
             </div>
           </div>
           @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-            <div class="mb-3 mt-8">
+            <div class="mb-6 mt-8">
               <div class="form-check mb-8 ms-2 @error('terms') is-invalid @enderror">
                 <input class="form-check-input @error('terms') is-invalid @enderror" type="checkbox" id="terms" name="terms" />
                 <label class="form-check-label" for="terms">
@@ -98,17 +98,38 @@ $configData = Helper::appClasses();
             </div>
           @endif
           <button type="submit" class="btn btn-primary d-grid w-100">Sign up</button>
-        </class>
         </form>
 
-        <p class="text-center" mb-3>
+        <p class="text-center">
           <span>Already have an account?</span>
           @if (Route::has('login'))
             <a href="{{ route('login') }}">
               <span>Sign in instead</span>
             </a>
           @endif
+        </p>
 
+        <div class="divider my-6">
+          <div class="divider-text">or</div>
+        </div>
+
+        <div class="d-flex justify-content-center">
+          <a href="javascript:;" class="btn btn-sm btn-icon rounded-pill btn-text-facebook me-1_5">
+            <i class="tf-icons ti ti-brand-facebook-filled"></i>
+          </a>
+
+          <a href="javascript:;" class="btn btn-sm btn-icon rounded-pill btn-text-twitter me-1_5">
+            <i class="tf-icons ti ti-brand-twitter-filled"></i>
+          </a>
+
+          <a href="javascript:;" class="btn btn-sm btn-icon rounded-pill btn-text-github me-1_5">
+            <i class="tf-icons ti ti-brand-github-filled"></i>
+          </a>
+
+          <a href="javascript:;" class="btn btn-sm btn-icon rounded-pill btn-text-google-plus">
+            <i class="tf-icons ti ti-brand-google-filled"></i>
+          </a>
+        </div>
       </div>
     </div>
     <!-- /Register -->
