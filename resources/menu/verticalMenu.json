@@ -108,18 +108,19 @@
       "slug": "pages-page-2"
     },
     {
-      "url": "pages/misc-error",
-      "name": "Error",
-      "icon": "menu-icon tf-icons ti ti-alert-triangle",
-      "slug": "pages-misc-error",
-      "target": "_blank"
+      "menuHeader": "ADMINISTRATOR"
     },
     {
-      "url": "auth/login-basic",
-      "name": "Login",
-      "icon": "menu-icon tf-icons ti ti-login",
-      "slug": "auth-login-basic",
-      "target": "_blank"
+      "name": "Users",
+      "icon": "menu-icon tf-icons ti ti-users",
+      "slug": "app-user",
+      "submenu": [
+        {
+          "url": "app/user/list",
+          "name": "List",
+          "slug": "app-user-list"
+        }
+      ]
     },
     {
       "url": "auth/register-basic",

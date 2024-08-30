@@ -97,7 +97,10 @@
         </div>
       </div>
       <div class="bs-stepper-content">
-        <form id="wizard-validation-form" onSubmit="return false">
+
+        <!-- formulir -->
+
+        <form action="#" id="wizard-validation-form" onSubmit="return false">
           <!-- Account Details -->
           <div id="account-details-validation" class="content">
             <div class="content-header mb-3">
@@ -255,7 +258,7 @@
                 <button class="btn btn-label-secondary btn-prev"> <i class="ti ti-arrow-left me-sm-1 me-0"></i>
                   <span class="align-middle d-sm-inline-block d-none">Previous</span>
                 <div class="demo-inline-spacing">
-                  <button type="button" class="btn btn-success" id="type-success">Submit</button>
+                  <button type="submit" class="btn btn-success" id="type-success">Submit</button>
               </div>
             </div>
           </div>

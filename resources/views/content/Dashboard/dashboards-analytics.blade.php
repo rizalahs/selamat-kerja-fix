@@ -18,7 +18,7 @@
 
 <div class="row">
   <!-- Line Area Chart -->
-  <div class="col-12 mb-4">
+  <div class="col-md-6">
     <div class="card">
       <div class="card-header d-flex justify-content-between">
         <div>
@@ -48,7 +48,7 @@
   <!-- /Line Area Chart -->
 
   <!-- Radar Chart -->
-  <div class="col-md-6 col-12 mb-4">
+  <div class="col-md-6 col-12 mb-6">
     <div class="card">
       <div class="card-header d-flex justify-content-between align-items-center">
         <h5 class="card-title mb-0">Lokasi Kejadian</h5>
