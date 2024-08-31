@@ -7,8 +7,8 @@ use App\Http\Controllers\pages\Page2;
 use App\Http\Controllers\pages\MiscError;
 use App\Http\Controllers\dashboard\Analytics;
 use App\Http\Controllers\form_elements\accident;
-use App\Http\Controllers\form_elements\PatientSafety;
 use App\Http\Controllers\laravel_example\UserManagement;
+use App\Http\Controllers\PatientSafetyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,7 +37,13 @@ Route::get('/dashboard/analytics', [Analytics::class, 'index'])->name('dashboard
 
 //forms
 Route::get('/forms/accident', [accident::class, 'index'])->name('forms-accident');
-Route::get('/forms/Patientsafety', [PatientSafety::class, 'index'])->name('forms-PatientSafety');
+
+//formspatientsafety
+Route::get('/patientsafety/create', [PatientSafetyController::class, 'create'])->name('patientsafety.create');
+Route::post('/patientsafety', [PatientSafetyController::class, 'store'])->name('patientsafety.store');
+Route::get('/patientsafety', [PatientSafetyController::class, 'index'])->name('patientsafety.index');
+
+
 
 //app
 
