@@ -29,27 +29,40 @@ $(function () {
       });
     });
   }
-  // Default untuk select3
+
+  // Select3 with Icons
   if (select3.length) {
-    select3.each(function () {
-      var $this = $(this);
-      $this.wrap('<div class="position-relative"></div>').select2({
-        placeholder: 'Select value',
-        dropdownParent: $this.parent()
-      });
-    });
-  }
-
-
-  // Select2 Icons
-  if (select2Icons.length) {
-    // custom template to render icons
+    // Custom template to render icons
     function renderIcons(option) {
       if (!option.id) {
         return option.text;
       }
       var $icon = "<i class='" + $(option.element).data('icon') + " me-2'></i>" + option.text;
+      return $icon;
+    }
 
+    select3.each(function () {
+      var $this = $(this);
+      $this.wrap('<div class="position-relative"></div>').select2({
+        placeholder: 'Select value',
+        dropdownParent: $this.parent(),
+        templateResult: renderIcons,
+        templateSelection: renderIcons,
+        escapeMarkup: function (es) {
+          return es;
+        }
+      });
+    });
+  }
+
+  // Select2 Icons
+  if (select2Icons.length) {
+    // Custom template to render icons
+    function renderIcons(option) {
+      if (!option.id) {
+        return option.text;
+      }
+      var $icon = "<i class='" + $(option.element).data('icon') + " me-2'></i>" + option.text;
       return $icon;
     }
     select2Icons.wrap('<div class="position-relative"></div>').select2({
