@@ -84,8 +84,8 @@
       <div class="card">
         <h5 class="card-header">Form Laporan Kejadian Keselamatan Kerja</h5>
         <div class="card-body">
-          <form id="formValidationExamples" class="row g-3">
-
+          <form class="row g-3 needs-validation" action="{{ route('patientsafety.store') }}" method="POST" >
+            @csrf
             <!-- Informasi Umum -->
 
             <div class="col-12">
@@ -95,20 +95,20 @@
 
 
             <div class="col-md-6">
-              <label class="form-label" for="formValidationName">Full Name</label>
-              <input type="text" id="formValidationName" class="form-control" placeholder="John Doe" name="formValidationName" />
+              <label class="form-label" for="nama">Full Name</label>
+              <input type="text" id="nama" class="form-control" placeholder="Nama" name="nama" />
             </div>
             <div class="col-md-6">
-              <label for="accidentTime" class="form-label">Waktu Kejadian</label>
-              <input type="text" class="form-control" placeholder="HH:MM" id="flatpickr-time" />
+              <label for="waktu_kejadian" class="form-label">Waktu Kejadian</label>
+              <input type="text" class="form-control" placeholder="HH:MM" id="flatpickr-time" name="waktu_kejadian"/>
             </div>
 
             <div class="col-md-6">
-              <label for="accident-date" class="form-label">Tanggal Kejadian</label>
-              <input type="text" class="form-control" placeholder="Masukan Tanggal Kejadian" id="flatpickr-date" />
+              <label for="tanggal_kejadian" class="form-label">Tanggal Kejadian</label>
+              <input type="text" class="form-control" placeholder="Masukan Tanggal Kejadian" id="flatpickr-date" name="tanggal_kejadian" />
             </div>
             <div class="col-md-6">
-              <label for="JenisKejadian" class="form-label">Jenis Kejadian</label>
+              <label for="jenis_kejadian" class="form-label">Jenis Kejadian</label>
               <select class="select2-icons form-select" id="jenis-kejadian" name="jenis_kejadian">
                 <option selected disabled>Pilih Jenis Kejadian</option>
 
@@ -177,20 +177,20 @@
             </div>
 
             <div class="col-sm-6">
-              <label class="form-label" for="formValidationFirstName">Kronologi Kejadian</label>
-                <textarea class="form-control message-input" placeholder="Jelaskan Kronologi Kejadian" rows="2"></textarea>
+              <label class="form-label" for="kronologi_kejadian">Kronologi Kejadian</label>
+                <textarea class="form-control message-input" placeholder="Jelaskan Kronologi Kejadian" name="kronologi_kejadian" id="kronologi_kejadian" rows="2"></textarea>
             </div>
             <div class="col-sm-6">
-              <label class="form-label" for="#">Alat atau bahan yang terlibat</label>
-              <input type="text" id="" name="name" class="form-control" placeholder="Alat, mesin, atau bahan yang terlibat dalam kejadian" />
+              <label class="form-label" for="alat_bahan">Alat atau bahan yang terlibat</label>
+              <input type="text" id="alat_bahan" name="alat_bahan" class="form-control" placeholder="Alat, mesin, atau bahan yang terlibat dalam kejadian" />
             </div>
             <div class="col-sm-6">
-              <label class="form-label" for="#">Penyebab kejadian</label>
-              <input type="text" id="" name="name" class="form-control" placeholder="Identifikasi faktor penyebab langsung atau tidak langsung" />
+              <label class="form-label" for="penyebab_kejadian">Penyebab kejadian</label>
+              <input type="text" id="penyebab_kejadian" name="penyebab_kejadian" class="form-control" placeholder="Identifikasi faktor penyebab langsung atau tidak langsung" />
             </div>
             <div class="col-sm-6">
-              <label class="form-label" for="#">Kondisi lingkungan saat kejadian</label>
-              <input type="text" id="" name="name" class="form-control" placeholder="Kondisi lingkungan misalnya : keramaian, pencahayaan, kebisingan, kondisi lantai, dll" />
+              <label class="form-label" for="kondisi_lingkungan">Kondisi lingkungan saat kejadian</label>
+              <input type="text" id="kondisi_lingkungan" name="kondisi_lingkungan" class="form-control" placeholder="Kondisi lingkungan misalnya : keramaian, pencahayaan, kebisingan, kondisi lantai, dll" />
             </div>
 
             <!-- Choose Your Plan -->
@@ -201,30 +201,30 @@
             </div>
 
             <div class="col-sm-6">
-              <label class="form-label" for="">Nama Korban</label>
-              <input type="text" name="" id="" class="form-control" placeholder="Masukan nama korban" />
+              <label class="form-label" for="nama_korban">Nama Korban</label>
+              <input type="text" name="nama_korban" id="nama_korban" class="form-control" placeholder="Masukan nama korban" />
             </div>
             <div class="col-sm-6">
-              <label class="form-label" for="formValidationTwitter">Cedera yang di alami</label>
-              <input type="text" name="" id="" class="form-control" placeholder="misalnya, luka, patah tulang, memar" />
+              <label class="form-label" for="cedera">Cedera yang di alami</label>
+              <input type="text" name="cedera" id="cedera" class="form-control" placeholder="misalnya, luka, patah tulang, memar" />
             </div>
             <div class="col-sm-6">
-              <label class="form-label" for="formValidationTwitter">Bagian tubuh yang cidera</label>
-              <input type="text" name="" id="#" class="form-control" placeholder="misalnya, tangan, kepala, kaki" />
+              <label class="form-label" for="bagian_tubuh">Bagian tubuh yang cidera</label>
+              <input type="text" name="bagian_tubuh" id="bagian_tubuh" class="form-control" placeholder="misalnya, tangan, kepala, kaki" />
             </div>
             <div class="col-sm-6">
-              <label class="form-label" for="formValidationFacebook">Tindakan pertolongan pertama</label>
-              <input type="text" name="" id="#" class="form-control" placeholder="pertolongan pertama yang diberikan" />
+              <label class="form-label" for="tindakan_pertama">Tindakan pertolongan pertama</label>
+              <input type="text" name="tindakan_pertama" id="tindakan_pertama" class="form-control" placeholder="pertolongan pertama yang diberikan" />
             </div>
             <div class="col">
-              <input type="file" class="form-control" id="inputGroupFile02" capture="camera">
-              <label class="input-group-text" for="inputGroupFile02">Upload gambar atau video</label>
+              <input type="file" class="form-control" id="gambar" capture="camera">
+              <label class="input-group-text" for="gambar">Upload gambar atau video</label>
             </div>
 
             <!-- button-->
 
             <div class="col-12">
-              <button type="submit" name="submitButton" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-succes">Submit</button>
             </div>
           </form>
         </div>

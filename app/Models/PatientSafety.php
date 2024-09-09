@@ -11,12 +11,17 @@ class PatientSafety extends Model
     protected $table='insiden_kejadian';
     protected $fillable = [
       'nama',
-      'tanggal_kejadian',
       'waktu_kejadian',
-      'lokasi_kejadian',
+      'tanggal_kejadian',
       'jenis_kejadian',
+      'lokasi_kejadian',
       'kronologi_kejadian',
-      'tindakan',
-      'rekomendasi',
+      'alat_bahan',
+      'penyebab_kejadian',
+      'kondisi_lingkungan',
+      'nama_korban',
+      'cedera',
+      'bagian_tubuh',
+      'tindakan_pertama',
   ];
 }

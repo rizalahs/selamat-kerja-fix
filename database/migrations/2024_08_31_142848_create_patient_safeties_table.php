@@ -14,13 +14,18 @@ return new class extends Migration
       Schema::create('patient_safeties', function (Blueprint $table) {
         $table->id();
         $table->string('nama');
-        $table->date('tanggal_kejadian');
         $table->time('waktu_kejadian');
-        $table->string('lokasi_kejadian');
+        $table->date('tanggal_kejadian');
         $table->string('jenis_kejadian');
+        $table->string('lokasi_kejadian');
         $table->text('kronologi_kejadian');
-        $table->string('tindakan');
-        $table->text('rekomendasi')->nullable();
+        $table->text('alat_bahan')->nullable();
+        $table->text('penyebab_kejadian');
+        $table->text('kondisi_lingkungan')->nullable();
+        $table->text('nama_korban')->nullable();
+        $table->text('cedera')->nullable();
+        $table->text('bagian_tubuh')->nullable();
+        $table->text('tindakan_pertama')->nullable();
         $table->timestamps();
     });
     }

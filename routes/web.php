@@ -41,7 +41,7 @@ Route::get('/forms/accident', [accident::class, 'index'])->name('forms-accident'
 
 //formspatientsafety
 Route::get('/patientsafety/create', [PatientSafetyController::class, 'create'])->name('patientsafety.create');
-Route::post('/patientsafety', [PatientSafetyController::class, 'store'])->name('patientsafety.store');
+Route::post('/patientsafety/create', [PatientSafetyController::class, 'store'])->name('patientsafety.store');
 Route::get('/patientsafety', [PatientSafetyController::class, 'index'])->name('patientsafety.index');
 
 
