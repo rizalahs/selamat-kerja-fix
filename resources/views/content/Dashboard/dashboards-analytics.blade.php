@@ -18,7 +18,7 @@
 
 <div class="row">
   <!-- Line Area Chart -->
-  <div class="col-md-6">
+  <div class="col-md-6" >
     <div class="card">
       <div class="card-header d-flex justify-content-between">
         <div>
@@ -41,7 +41,8 @@
         </div>
       </div>
       <div class="card-body">
-        <div id="lineAreaChart"></div>
+        <div id="lineAreaChart">
+        </div>
       </div>
     </div>
   </div>

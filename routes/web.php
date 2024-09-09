@@ -4,11 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\language\LanguageController;
 use App\Http\Controllers\pages\HomePage;
 use App\Http\Controllers\pages\Page2;
-use App\Http\Controllers\pages\MiscError;
 use App\Http\Controllers\dashboard\Analytics;
 use App\Http\Controllers\form_elements\accident;
 use App\Http\Controllers\laravel_example\UserManagement;
 use App\Http\Controllers\PatientSafetyController;
+use App\Http\Controllers\front_pages\Landing;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,8 +27,8 @@ Route::get('/page-2', [Page2::class, 'index'])->name('pages-page-2');
 // locale
 Route::get('lang/{locale}', [LanguageController::class, 'swap']);
 
-// pages
-Route::get('/pages/misc-error', [MiscError::class, 'index'])->name('pages-misc-error');
+// front pages
+Route::get('/front-pages/landing', [Landing::class, 'index'])->name('front-pages-landing');
 
 // authentication
 

@@ -155,7 +155,7 @@
         shared: false
       }
     };
-  if (typeof areaChartEl !== undefined && areaChartEl !== null) {
+  if (typeof areaChartEl !== 'undefined' && areaChartEl !== null) {
     const areaChart = new ApexCharts(areaChartEl, areaChartConfig);
     areaChart.render();
   }

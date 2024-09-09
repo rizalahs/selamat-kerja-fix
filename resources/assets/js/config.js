@@ -10,7 +10,7 @@
 // JS global variables
 window.config = {
   colors: {
-    primary: '#7CFC00',
+    primary: '#7FFF00',
     secondary: '#a8aaae',
     success: '#28c76f',
     info: '#00cfe8',
@@ -27,7 +27,7 @@ window.config = {
     borderColor: '#dbdade'
   },
   colors_label: {
-    primary: '#7CFC00',
+    primary: '#7FFF00',
     secondary: '#a8aaae29',
     success: '#28c76f29',
     info: '#00cfe829',
@@ -49,4 +49,4 @@ window.config = {
 window.assetsPath = document.documentElement.getAttribute('data-assets-path');
 window.baseUrl = document.documentElement.getAttribute('data-base-url') + '/';
 window.templateName = document.documentElement.getAttribute('data-template');
-window.rtlSupport = false; // set true for rtl support (rtl + ltr), false for ltr only.
+window.rtlSupport = true; // set true for rtl support (rtl + ltr), false for ltr only.

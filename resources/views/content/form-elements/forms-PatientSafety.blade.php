@@ -84,7 +84,6 @@
       <div class="card">
         <h5 class="card-header">Form Laporan Kejadian Keselamatan Kerja</h5>
         <div class="card-body">
-
           <form id="formValidationExamples" class="row g-3">
 
             <!-- Informasi Umum -->
