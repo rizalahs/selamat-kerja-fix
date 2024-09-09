@@ -24,3 +24,11 @@
 
 <!-- Page Styles -->
 @yield('page-style')
+
+@livewireStyles
+
+@livewireStyles
+
+@livewireStyles
+
+@livewireStyles

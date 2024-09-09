@@ -10,7 +10,8 @@ $configData = Helper::appClasses();
 @section('vendor-style')
 @vite([
   'resources/assets/vendor/libs/nouislider/nouislider.scss',
-  'resources/assets/vendor/libs/swiper/swiper.scss'
+  'resources/assets/vendor/libs/swiper/swiper.scss',
+  'resources/assets/vendor/libs/apex-charts/apex-charts.scss'
 ])
 @endsection
 
@@ -18,10 +19,10 @@ $configData = Helper::appClasses();
 @section('page-style')
 @vite(['resources/assets/vendor/scss/pages/front-page-landing.scss'])
 @endsection
-
 <!-- Vendor Scripts -->
 @section('vendor-script')
 @vite([
+  'resources/assets/vendor/libs/apex-charts/apexcharts.js',
   'resources/assets/vendor/libs/nouislider/nouislider.js',
   'resources/assets/vendor/libs/swiper/swiper.js'
 ])
@@ -29,10 +30,12 @@ $configData = Helper::appClasses();
 
 <!-- Page Scripts -->
 @section('page-script')
-@vite(['resources/assets/js/front-page-landing.js'])
+  @vite(['resources/assets/js/config.js',
+    'resources/assets/js/front-page-landing.js',
+    'resources/assets/js/charts-landing.js'
+  ])
+
 @endsection
-
-
 @section('content')
 <div data-bs-spy="scroll" class="scrollspy-example">
   <!-- Hero: Start -->
@@ -41,32 +44,78 @@ $configData = Helper::appClasses();
       <img src="{{asset('assets/img/front-pages/backgrounds/hero-bg.png')}}" alt="hero background" class="position-absolute top-0 start-50 translate-middle-x object-fit-contain w-100 h-100" data-speed="1"/>
       <div class="container">
         <div class="hero-text-box text-center">
-          <h1 class="text-primary hero-title display-6 fw-bold">One dashboard to manage all your businesses</h1>
-          <h2 class="hero-sub-title h6 mb-4 pb-1">
-            Production-ready & easy to use Admin Template<br class="d-none d-lg-block" />
-            for Reliability and Customizability.
-          </h2>
-          <div class="landing-hero-btn d-inline-block position-relative">
-            <span class="hero-btn-item position-absolute d-none d-md-flex text-heading">Join community
-              <img src="{{asset('assets/img/front-pages/icons/Join-community-arrow.png')}}" alt="Join community arrow" class="scaleX-n1-rtl" /></span>
-            <a href="#landingPricing" class="btn btn-primary btn-lg">Get early access</a>
-          </div>
+          <h1 class="text-primary hero-title display-6 fw-bold">"Selamat Kerja" </h1>
+          <h2 class="text-primary hero-title display fw-bold">Sistem Laporan Keselamatan Kerja </h2>
         </div>
-        <div id="heroDashboardAnimation" class="hero-animation-img">
-          <a href="{{url('/app/ecommerce/dashboard')}}" target="_blank">
-            <div id="heroAnimationImg" class="position-relative hero-dashboard-img">
-              <img src="{{asset('assets/img/front-pages/landing-page/hero-dashboard-'.$configData['style'].'.png')}}" alt="hero dashboard" class="animation-img" data-app-light-img="front-pages/landing-page/hero-dashboard-light.png" data-app-dark-img="front-pages/landing-page/hero-dashboard-dark.png" />
-              <img src="{{asset('assets/img/front-pages/landing-page/hero-elements-'.$configData['style'].'.png')}}" alt="hero elements" class="position-absolute hero-elements-img animation-img top-0 start-0" data-app-light-img="front-pages/landing-page/hero-elements-light.png" data-app-dark-img="front-pages/landing-page/hero-elements-dark.png" />
+        <div>
+          <h2 class="hero-title h4 text-center">
+            Selamat datang di aplikasi SelamatKerja, solusi inovatif untuk memudahkan pelaporan dan pengelolaan keselamatan kerja di Puskesmas Bontang Utara 1. Aplikasi ini didesain untuk memastikan bahwa setiap kejadian potensial yang berkaitan dengan keselamatan dan kesehatan kerja dapat dilaporkan dengan cepat dan efisien.
+          </h2>
+        </div>
+        </div>
+        </section>
+  <!-- Hero: End -->
+  <!-- Akumulasi Laporan Kejadian Chart -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header d-flex justify-content-between">
+            <div>
+              <h5 class="card-title mb-0">Akumulasi Laporan Kejadian</h5>
+              <small class="text-muted">Live Update</small>
             </div>
-          </a>
+            <div class="dropdown">
+              <button type="button" class="btn dropdown-toggle px-0" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="ti ti-calendar"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a href="javascript:void(0);" class="dropdown-item d-flex align-items-center">Today</a></li>
+                <li><a href="javascript:void(0);" class="dropdown-item d-flex align-items-center">Yesterday</a></li>
+                <li><a href="javascript:void(0);" class="dropdown-item d-flex align-items-center">Last 7 Days</a></li>
+                <li><a href="javascript:void(0);" class="dropdown-item d-flex align-items-center">Last 30 Days</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a href="javascript:void(0);" class="dropdown-item d-flex align-items-center">Current Month</a></li>
+                <li><a href="javascript:void(0);" class="dropdown-item d-flex align-items-center">Last Month</a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- Line Area Chart -->
+          <div class="card-body">
+            <div class="chart-container">
+              <div id="lineAreaChart"></div>
+            </div>
+          </div>
+          <!-- /Line Area Chart -->
         </div>
       </div>
-    </div>
-    <div class="landing-hero-blank"></div>
-  </section>
-  <!-- Hero: End -->
+      <!-- /Akumulasi Laporan Kejadian Chart -->
 
-  <!-- Useful features: Start -->
+      <!-- Lokasi Kejadian Chart -->
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="card-title mb-0">Lokasi Kejadian</h5>
+            <div class="dropdown">
+              <button class="btn px-0" type="button" id="heatChartDd1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="ti ti-dots-vertical"></i>
+              </button>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="heatChartDd1">
+                <a class="dropdown-item" href="javascript:void(0);">Last 28 Days</a>
+                <a class="dropdown-item" href="javascript:void(0);">Last Month</a>
+                <a class="dropdown-item" href="javascript:void(0);">Last Year</a>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="chart-container">
+              <div id="radarChart"></div>
+            </div>
+        </div>
+      </div>
+      <!-- /Lokasi Kejadian Chart -->
+    </div>
+    <!-- Useful features: Start -->
   <section id="landingFeatures" class="section-py landing-features">
     <div class="container">
       <div class="text-center mb-3 pb-1">
@@ -138,7 +187,7 @@ $configData = Helper::appClasses();
   <!-- Useful features: End -->
 
   <!-- Real customers reviews: Start -->
-  <section id="landingReviews" class="section-py bg-body landing-reviews pb-0">
+  <section id="landingReviews" class="section-py bg-body landing-reviews">
     <!-- What people say slider: Start -->
     <div class="container">
       <div class="row align-items-center gx-0 gy-4 g-lg-5">

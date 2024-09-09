@@ -160,7 +160,7 @@ $navbarDetached = ($navbarDetached ?? '');
               @foreach (Auth::user()->allTeams() as $team)
               {{-- Below commented code read by artisan command while installing jetstream. !! Do not remove if you want to use jetstream. --}}
 
-              {{-- <x-switchable-team :team="$team" /> --}}
+              <x-switchable-team :team="$team" />
               @endforeach
               @endif
               @endif
