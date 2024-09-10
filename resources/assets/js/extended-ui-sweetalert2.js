@@ -261,19 +261,23 @@
   // --------------------------------------------------------------------
 
   // Success Alert
-  if (iconSuccess) {
-    iconSuccess.onclick = function () {
-      Swal.fire({
-        title: 'Good job!',
-        text: 'You clicked the button!',
-        icon: 'success',
-        customClass: {
-          confirmButton: 'btn btn-primary waves-effect waves-light'
-        },
-        buttonsStyling: false
-      });
-    };
-  }
+  document.addEventListener('DOMContentLoaded', function () {
+    const iconSuccess = document.querySelector('#type-success');
+
+    if (iconSuccess) {
+      iconSuccess.onclick = function () {
+        Swal.fire({
+          icon: 'success',
+          title: 'Laporan berhasil disimpan!',
+          text: 'Terima kasih sudah melaporkan insiden ini.',
+          customClass: {
+            confirmButton: 'btn btn-primary'
+          },
+          buttonsStyling: false
+        });
+      };
+    }
+  });
 
   // Info Alert
   if (iconInfo) {
