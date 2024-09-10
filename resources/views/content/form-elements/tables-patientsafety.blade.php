@@ -3,7 +3,7 @@
 @section('title', 'Daftar Insiden Keselamatan Pasien')
 
 @section('content')
-<h4 class="py-3 mb-4">Daftar Insiden Keselamatan Pasien</h4>
+<h4 class="py-3 mb-4">Daftar Laporan Patient Safety</h4>
 
 @if(session('success'))
     <div class="alert alert-success">
@@ -18,10 +18,10 @@
             <th>Tanggal Kejadian</th>
             <th>Waktu Kejadian</th>
             <th>Lokasi Kejadian</th>
-            <th>Jenis Kejadian</th>
-            <th>Kronologi Kejadian</th>
+            <th>Nama Korban</th>
             <th>Tindakan</th>
-            <th>Rekomendasi</th>
+            <th>Dokumentasi</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -31,10 +31,13 @@
             <td>{{ $PatientSafety->tanggal_kejadian }}</td>
             <td>{{ $PatientSafety->waktu_kejadian }}</td>
             <td>{{ $PatientSafety->lokasi_kejadian }}</td>
-            <td>{{ $PatientSafety->jenis_kejadian }}</td>
-            <td>{{ $PatientSafety->kronologi_kejadian }}</td>
+            <td>{{ $PatientSafety->namakorban }}</td>
             <td>{{ $PatientSafety->tindakan }}</td>
-            <td>{{ $PatientSafety->rekomendasi }}</td>
+            <td><img src="{{asset('storage/image-patientsafety/'.$PatientSafety->image)}}" alt="" width="100"></td>
+            <td>
+                <button type="submit" class="btn btn-information">Edit</button>
+                <button type="submit" class="btn btn-Danger">Hapus</button>
+            </td>
         </tr>
         @endforeach
     </tbody>

@@ -56,6 +56,27 @@
       "slug": "forms-PenyakitAkibatKerja"
     },
     {
+      "menuHeader": "Tabel Laporan"
+    },
+    {
+      "url": "tables/accident",
+      "name": "Tabel Kecelakaan Kerja",
+      "icon": "menu-icon fa-solid fa-person-falling-burst",
+      "slug": "tables-accident"
+    },
+    {
+      "url": "tables/patientsafety",
+      "name": "Tabel Patient Safety",
+      "icon": "menu-icon fa-solid fa-person-circle-exclamation",
+      "slug": "tables-PatientSafety"
+    },
+    {
+      "url": "tables/penyakit-akibat-kerja",
+      "name": "Tabel Penyakit Akibat Kerja",
+      "icon": "menu-icon fa-solid fa-user-injured",
+      "slug": "tables-PenyakitAkibatKerja"
+    },
+    {
       "menuHeader": "Kesehatan Jasmani & Olahraga"
     },
     {

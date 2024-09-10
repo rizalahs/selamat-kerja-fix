@@ -8,7 +8,7 @@ use App\Http\Controllers\pages\MiscError;
 use App\Http\Controllers\dashboard\Analytics;
 use App\Http\Controllers\form_elements\accident;
 use App\Http\Controllers\laravel_example\UserManagement;
-use App\Http\Controllers\PatientSafetyController;
+use App\Http\Controllers\form_elements\PatientSafetyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,15 +35,19 @@ Route::get('/pages/misc-error', [MiscError::class, 'index'])->name('pages-misc-e
 Route::get('/', [Analytics::class, 'index'])->name('dashboard-analytics');
 Route::get('/dashboard/analytics', [Analytics::class, 'index'])->name('dashboard-analytics');
 
-//forms
+//formsaccident
 Route::get('/forms/accident', [accident::class, 'index'])->name('forms-accident');
+Route::post('/forms/accident', [accident::class, 'store'])->name('accident.store');
+route::get('/edit/accident/{id}',[accident::class, 'edit'])->name('edit.accident');
 
 //formspatientsafety
 Route::get('/patientsafety/create', [PatientSafetyController::class, 'create'])->name('patientsafety.create');
-Route::post('/patientsafety', [PatientSafetyController::class, 'store'])->name('patientsafety.store');
-Route::get('/patientsafety', [PatientSafetyController::class, 'index'])->name('patientsafety.index');
+Route::post('/patientsafety/create', [PatientSafetyController::class, 'store'])->name('patientsafety.store');
 
 
+//tabelLaporan
+Route::get('/tables/patientsafety', [PatientSafetyController::class, 'index'])->name('tables-patientsafety');
+Route::get('/tables/accident', [accident::class, 'table'])->name('tables-accident');
 
 //app
 

@@ -84,7 +84,7 @@
         <h5 class="card-header">Form Laporan Kejadian Keselamatan Kerja</h5>
         <div class="card-body">
 
-          <form action="{{route('accident.store')}}" class="row g-3" method="POST" enctype="multipart/form-data">
+          <form action="/balita/{{$balita->id}}/update" class="row g-3" method="POST" enctype="multipart/form-data">
             @csrf
             <!-- Informasi -->
 

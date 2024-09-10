@@ -1,6 +1,6 @@
 @extends('layouts/layoutMaster')
 
-@section('title', 'Basic Inputs - accident')
+@section('title', 'Basic Inputs - PatientSafety')
 
 <!-- Vendor Styles -->
 @section('vendor-style')
@@ -85,8 +85,8 @@
         <h5 class="card-header">Form Laporan Kejadian Keselamatan Kerja</h5>
         <div class="card-body">
 
-          <form id="formValidationExamples" class="row g-3">
-
+          <form action="{{route('patientsafety.store')}}" method="POST" id="formValidationExamples" class="row g-3">
+            @csrf
             <!-- Informasi Umum -->
 
             <div class="col-12">
@@ -96,21 +96,21 @@
 
 
             <div class="col-md-6">
-              <label class="form-label" for="formValidationName">Full Name</label>
-              <input type="text" id="formValidationName" class="form-control" placeholder="John Doe" name="formValidationName" />
+              <label class="form-label" for="formValidationName">Nama Lengkap Pelapor</label>
+              <input type="text" name="nama" id="formValidationName" class="form-control" placeholder="Nama Lengkap Anda" name="formValidationName" />
             </div>
             <div class="col-md-6">
               <label for="accidentTime" class="form-label">Waktu Kejadian</label>
-              <input type="text" class="form-control" placeholder="HH:MM" id="flatpickr-time" />
+              <input type="text" name="waktu_kejadian" class="form-control" placeholder="HH:MM" id="flatpickr-time" />
             </div>
 
             <div class="col-md-6">
               <label for="accident-date" class="form-label">Tanggal Kejadian</label>
-              <input type="text" class="form-control" placeholder="Masukan Tanggal Kejadian" id="flatpickr-date" />
+              <input type="text" name="tanggal_kejadian" class="form-control" placeholder="Masukan Tanggal Kejadian" id="flatpickr-date" />
             </div>
             <div class="col-md-6">
               <label for="JenisKejadian" class="form-label">Jenis Kejadian</label>
-              <select class="select2-icons form-select" id="jenis-kejadian" name="jenis_kejadian">
+              <select class="select2-icons form-select" name="jenis_kejadian" id="jenis-kejadian" name="jenis_kejadian">
                 <option selected disabled>Pilih Jenis Kejadian</option>
 
                 <optgroup label="Kejadian Tidak Diinginkan (KTD)">
@@ -179,19 +179,19 @@
 
             <div class="col-sm-6">
               <label class="form-label" for="formValidationFirstName">Kronologi Kejadian</label>
-                <textarea class="form-control message-input" placeholder="Jelaskan Kronologi Kejadian" rows="2"></textarea>
+                <textarea class="form-control message-input" name="kronologi_kejadian" placeholder="Jelaskan Kronologi Kejadian" rows="2"></textarea>
             </div>
             <div class="col-sm-6">
               <label class="form-label" for="#">Alat atau bahan yang terlibat</label>
-              <input type="text" id="" name="name" class="form-control" placeholder="Alat, mesin, atau bahan yang terlibat dalam kejadian" />
+              <input type="text" id="" name="alat" class="form-control" placeholder="Alat, mesin, atau bahan yang terlibat dalam kejadian" />
             </div>
             <div class="col-sm-6">
               <label class="form-label" for="#">Penyebab kejadian</label>
-              <input type="text" id="" name="name" class="form-control" placeholder="Identifikasi faktor penyebab langsung atau tidak langsung" />
+              <input type="text" id="" name="penyebab" class="form-control" placeholder="Identifikasi faktor penyebab langsung atau tidak langsung" />
             </div>
             <div class="col-sm-6">
               <label class="form-label" for="#">Kondisi lingkungan saat kejadian</label>
-              <input type="text" id="" name="name" class="form-control" placeholder="Kondisi lingkungan misalnya : keramaian, pencahayaan, kebisingan, kondisi lantai, dll" />
+              <input type="text" id="" name="kondisi" class="form-control" placeholder="Kondisi lingkungan misalnya : keramaian, pencahayaan, kebisingan, kondisi lantai, dll" />
             </div>
 
             <!-- Choose Your Plan -->
@@ -203,23 +203,23 @@
 
             <div class="col-sm-6">
               <label class="form-label" for="">Nama Korban</label>
-              <input type="text" name="" id="" class="form-control" placeholder="Masukan nama korban" />
+              <input type="text" name="namakorban" id="" class="form-control" placeholder="Masukan nama korban" />
             </div>
             <div class="col-sm-6">
               <label class="form-label" for="formValidationTwitter">Cedera yang di alami</label>
-              <input type="text" name="" id="" class="form-control" placeholder="misalnya, luka, patah tulang, memar" />
+              <input type="text" name="cedera" id="" class="form-control" placeholder="misalnya, luka, patah tulang, memar" />
             </div>
             <div class="col-sm-6">
               <label class="form-label" for="formValidationTwitter">Bagian tubuh yang cidera</label>
-              <input type="text" name="" id="#" class="form-control" placeholder="misalnya, tangan, kepala, kaki" />
+              <input type="text" name="bagiantubuh" id="#" class="form-control" placeholder="misalnya, tangan, kepala, kaki" />
             </div>
             <div class="col-sm-6">
               <label class="form-label" for="formValidationFacebook">Tindakan pertolongan pertama</label>
-              <input type="text" name="" id="#" class="form-control" placeholder="pertolongan pertama yang diberikan" />
+              <input type="text" name="tindakan" id="#" class="form-control" placeholder="pertolongan pertama yang diberikan" />
             </div>
             <div class="col">
-              <input type="file" class="form-control" id="inputGroupFile02" capture="camera">
-              <label class="input-group-text" for="inputGroupFile02">Upload gambar atau video</label>
+              <input type="file" name="image" class="form-control" id="inputGroupFile02" capture="camera">
+              <label class="input-group-text"  for="inputGroupFile02">Upload gambar atau video</label>
             </div>
 
             <!-- button-->

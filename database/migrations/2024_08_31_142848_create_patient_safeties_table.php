@@ -19,8 +19,14 @@ return new class extends Migration
         $table->string('lokasi_kejadian');
         $table->string('jenis_kejadian');
         $table->text('kronologi_kejadian');
+        $table->string('Alat');
+        $table->text('penyebab');
+        $table->string('kondisi');
+        $table->string('namakorban');
+        $table->string('cedera');
+        $table->string('bagiantubuh');
         $table->string('tindakan');
-        $table->text('rekomendasi')->nullable();
+        $table->text('image')->nullable();
         $table->timestamps();
     });
     }
