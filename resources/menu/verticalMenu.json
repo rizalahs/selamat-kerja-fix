@@ -44,7 +44,7 @@
       "slug": "forms-accident"
     },
     {
-      "url": "forms/Patientsafety",
+      "url": "patientsafety/create",
       "name": "Patient Safety",
       "icon": "menu-icon fa-solid fa-person-circle-exclamation",
       "slug": "forms-PatientSafety"
@@ -54,6 +54,27 @@
       "name": "Penyakit Akibat Kerja",
       "icon": "menu-icon fa-solid fa-user-injured",
       "slug": "forms-PenyakitAkibatKerja"
+    },
+    {
+      "menuHeader": "Tabel Laporan"
+    },
+    {
+      "url": "tables/accident",
+      "name": "Tabel Kecelakaan Kerja",
+      "icon": "menu-icon fa-solid fa-person-falling-burst",
+      "slug": "tables-accident"
+    },
+    {
+      "url": "tables/patientsafety",
+      "name": "Tabel Patient Safety",
+      "icon": "menu-icon fa-solid fa-person-circle-exclamation",
+      "slug": "tables-PatientSafety"
+    },
+    {
+      "url": "tables/penyakit-akibat-kerja",
+      "name": "Tabel Penyakit Akibat Kerja",
+      "icon": "menu-icon fa-solid fa-user-injured",
+      "slug": "tables-PenyakitAkibatKerja"
     },
     {
       "menuHeader": "Kesehatan Jasmani & Olahraga"
@@ -116,7 +137,7 @@
       "slug": "app-user",
       "submenu": [
         {
-          "url": "app/user/list",
+          "url": "laravel/user-management",
           "name": "List",
           "slug": "app-user-list"
         }
