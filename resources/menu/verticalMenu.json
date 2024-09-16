@@ -47,7 +47,7 @@
       "url": "patientsafety/create",
       "name": "Patient Safety",
       "icon": "menu-icon fa-solid fa-person-circle-exclamation",
-      "slug": "forms-PatientSafety"
+      "slug": "patientsafety.create"
     },
     {
       "url": "#",
