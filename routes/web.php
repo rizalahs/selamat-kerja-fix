@@ -38,12 +38,16 @@ Route::get('/dashboard/analytics', [Analytics::class, 'index'])->name('dashboard
 //formsaccident
 Route::get('/forms/accident', [accident::class, 'index'])->name('forms-accident');
 Route::post('/forms/accident', [accident::class, 'store'])->name('accident.store');
-route::get('/edit/accident/{id}',[accident::class, 'edit'])->name('edit.accident');
+route::get('/edit/{id}/accident',[accident::class, 'edit'])->name('edit.accident');
+route::post('/edit/{id}/accident',[accident::class, 'update'])->name('update.accident');
+route::get('/tables/accident/{id}/hapus',[accident::class, 'delete'])->name('hapus.accident');
 
 //formspatientsafety
 Route::get('/patientsafety/create', [PatientSafetyController::class, 'create'])->name('patientsafety.create');
 Route::post('/patientsafety/create', [PatientSafetyController::class, 'store'])->name('patientsafety.store');
-
+Route::get('/edit/{id}/patientsafety',[PatientSafetyController::class, 'edit'])->name('edit.patientsafety');
+Route::post('/edit/{id}/patientsafety',[PatientSafetyController::class, 'update'])->name('update.patientsafety');
+Route::get('/tables/patientsafety/{id}/hapus',[PatientSafetyController::class, 'delete'])->name('hapus.patientsafety');
 
 //tabelLaporan
 Route::get('/tables/patientsafety', [PatientSafetyController::class, 'index'])->name('tables-patientsafety');

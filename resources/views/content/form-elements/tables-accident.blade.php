@@ -20,6 +20,7 @@
             <th>Lokasi Kejadian</th>
             <th>Nama Korban</th>
             <th>Tindakan</th>
+            <th>Alat</th>
             <th>dokumentasi</th>
             <th>Action</th>
         </tr>
@@ -33,10 +34,11 @@
             <td>{{ $accidents->lokasi_kejadian }}</td>
             <td>{{ $accidents->namakorban }}</td>
             <td>{{ $accidents->tindakan }}</td>
+            <td>{{ $accidents->Alat }}</td>
             <td><img src="{{asset('storage/image-accident/'.$accidents->image)}}" alt="" width="100"></td>
             <td>
-                <a href="/edit/accident/{{$accidents->id}}" class="btn btn-warning btn-sm">Edit </a>
-                <button type="submit" class="btn btn-Danger">Hapus</button>
+                <a href="/edit/{{$accidents->id}}/accident" class="btn btn-warning btn-sm">Edit </a>
+                <a href="/tables/accident/{{$accidents->id}}/hapus" class="btn btn-danger btn-sm" onclick="return confirm('Yakin Ingin Menghapus Data {{$accidents->nama}}?')" > Hapus </a>
             </td>
         </tr>
         @endforeach

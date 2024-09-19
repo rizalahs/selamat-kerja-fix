@@ -16,7 +16,7 @@ class PatientSafety extends Model
       'lokasi_kejadian',
       'jenis_kejadian',
       'kronologi_kejadian',
-      'alat',
+      'Alat',
       'penyebab',
       'kondisi',
       'namakorban',

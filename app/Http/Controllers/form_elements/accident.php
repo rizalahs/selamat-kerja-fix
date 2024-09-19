@@ -17,25 +17,6 @@ class accident extends Controller
 
   public function store (Request $request)
   {
-    $validator = Validator::make($request->all(),[
-      'nama' => 'required|string',
-      'tanggal_kejadian' => 'required|date',
-      'waktu_kejadian' => 'required|',
-      'lokasi_kejadian' => 'required',
-      'jenis_kejadian' => 'required',
-      'kronologi_kejadian' => 'required',
-      'alat'=> 'required',
-      'penyebab'=>'required',
-      'kondisi'=>'required',
-      'namakorban'=>'required',
-      'cedera'=> 'required',
-      'bagiantubuh'=>'required',
-      'tindakan' => 'required',
-      'image' => 'required|mimes:png,jpg,jpeg|max:2048',
-    ]);
-
-    if($validator->fails())return redirect()->back()->WithInput()->withErrors($validator);
-    
     $image        =$request->file('image');
     $filename     =date('Y-m-d').$image->getClientOriginalName();
     $path         ='image-accident/'.$filename;
@@ -48,7 +29,7 @@ class accident extends Controller
     $data['lokasi_kejadian']     =$request ->lokasi_kejadian;
     $data['jenis_kejadian']      =$request ->jenis_kejadian;
     $data['kronologi_kejadian']  =$request ->kronologi_kejadian;
-    $data['alat']                =$request ->alat;
+    $data['Alat']                =$request ->alat;
     $data['penyebab']            =$request ->penyebab;
     $data['kondisi']             =$request ->kondisi;
     $data['namakorban']          =$request ->namakorban;
@@ -73,5 +54,21 @@ class accident extends Controller
   {
     $KeselamatanKerja = \App\models\KeselamatanKerja::find($id);
     return view('content.form-elements.edit-accident',['KeselamatanKerja'=>$KeselamatanKerja]);
+  }
+
+  public function update(request $request,$id)
+  {
+      $KeselamatanKerja= \App\models\KeselamatanKerja::find($id);
+      $KeselamatanKerja ->update($request ->all());
+
+      return redirect()->route('tables-accident') ->with('success','Laporan Berhasil Di Update');
+  }
+
+  public function delete($id)
+  {
+    $KeselamatanKerja= \App\models\KeselamatanKerja::find($id);
+    $KeselamatanKerja->delete($KeselamatanKerja);
+
+      return redirect()->route('tables-accident') ->with('success','Laporan Berhasil Dihapus');
   }
 }

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('lokasi_kejadian');
             $table->string('jenis_kejadian');
             $table->text('kronologi_kejadian');
-            $table->string('Alat');
+            $table->string('Alat')->nullable();
             $table->text('penyebab');
             $table->string('kondisi');
             $table->string('namakorban');

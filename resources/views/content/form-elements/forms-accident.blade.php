@@ -185,7 +185,7 @@
               <input type="text" id="" name="alat" class="form-control" placeholder="Alat, mesin, atau bahan yang terlibat dalam kejadian" />
             </div>
             <div class="col-sm-6">
-              <label class="form-label" for="#">Penyebab kejadian</label>
+              <label class="form-label">Penyebab kejadian</label>
               <input type="text" id="" name="penyebab" class="form-control" placeholder="Identifikasi faktor penyebab langsung atau tidak langsung" />
             </div>
             <div class="col-sm-6">

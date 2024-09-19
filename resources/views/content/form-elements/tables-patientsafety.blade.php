@@ -35,8 +35,8 @@
             <td>{{ $PatientSafety->tindakan }}</td>
             <td><img src="{{asset('storage/image-patientsafety/'.$PatientSafety->image)}}" alt="" width="100"></td>
             <td>
-                <button type="submit" class="btn btn-information">Edit</button>
-                <button type="submit" class="btn btn-Danger">Hapus</button>
+                <a href="/edit/{{$PatientSafety->id}}/patientsafety" class="btn btn-warning btn-sm">Edit</a>
+                <a href="/tables/patientsafety/{{$PatientSafety->id}}/hapus" class="btn btn-danger btn-sm" onclick="return confirm('Yakin Ingin Menghapus Data {{$PatientSafety->nama}}?')" > Hapus </a>
             </td>
         </tr>
         @endforeach
